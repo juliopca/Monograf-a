@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monografía sobre Tejido Conjuntivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a6fb0;
+            --secondary: #1a9fb0;
+            --accent: #f47a60;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --light-blue: #e3f2fd;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background-color: #f5f7fa;
+            padding-top: 110px; 
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; color: var(--secondary); }
+        h5 { font-size: 1.1rem; color: var(--accent); }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            min-height: 120px; 
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; 
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 1px; 
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: white;
+        }
+        
+        .logo .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .professor-info {
+            text-align: right;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 10px; 
+        }
+        
+        nav {
+            width: 100%; 
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.6rem; 
+            flex-wrap: wrap; 
+            justify-content: center;
+            padding: 5px 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500; 
+            padding: 6px 9px; 
+            border-radius: 4px;
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.8rem; 
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: var(--transition);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        nav a.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute; 
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Secciones */
+        section {
+            padding-bottom: 60px; 
+            display: none; 
+            padding-top: 120px; 
+            margin-top: -120px; 
+        }
+        section#inicio {
+             margin-top: 0;
+             padding-top: 40px; 
+        }
+        
+        section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 50px; 
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .content-box {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .content-box p {
+            text-align: justify;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            margin-bottom: 1em; 
+        }
+
+        .content-box h3 {
+            color: var(--primary);
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-blue);
+            margin-bottom: 20px;
+        }
+        .content-box h4 { margin-top: 25px; }
+        .content-box h5 { margin-top: 20px; }
+
+        .content-box ul, .content-box ol {
+            margin-left: 20px; /* Para indentar la lista */
+            margin-bottom: 1rem;
+            padding-left: 0; /* Quitar padding por defecto si se maneja con el margin-left del li */
+        }
+         .content-box ul li, .content-box ol li {
+            margin-bottom: 0.8em; /* Espacio entre items de lista */
+            text-align: justify; 
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            list-style-position: outside; /* Para que el bullet quede fuera del texto justificado */
+         }
+         .content-box ul#bibliografia-lista li a { /* Estilo específico para enlaces en bibliografía */
+            color: var(--primary);
+            text-decoration: underline;
+         }
+         .content-box ul#bibliografia-lista li a:hover {
+            color: var(--accent);
+         }
+        
+        .content-image {
+            width: 100%;
+            max-width: 450px; 
+            height: 300px;   
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 25px auto; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #eee; 
+            position: relative; 
+        }
+        
+        .content-image img {
+            width: 100%;
+            height: 100%; 
+            object-fit: contain; 
+            display: block;
+            border-radius: inherit; 
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: var(--gray);
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .team-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 450px; 
+            height: 450px; 
+            border-radius: 10px;  
+            overflow: hidden;    
+            margin: 20px auto;
+            border: 5px solid var(--light-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #eef5fc; 
+            position: relative; 
+        }
+
+        .team-photo img {
+            width: 100%;        
+            height: 100%;          
+            object-fit: cover;  
+            display: block; 
+            border-radius: inherit; 
+         }
+        
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px; 
+            margin-top: 20px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 8px;
+            padding: 10px 20px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 180px; 
+            font-size: 0.9rem; 
+        }
+        
+        .welcome-message {
+            text-align: center;
+            max-width: 800px;
+            margin: 30px auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Índice */
+        .index-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px;
+        }
+        
+        .index-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .index-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .index-section h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem; 
+        }
+        
+        .index-section h3 i {
+            color: var(--accent);
+        }
+        
+        .index-section ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        
+        .index-section li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9rem; 
+        }
+        
+        .index-section li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: var(--accent);
+        }
+        
+        .index-section li li { 
+            font-size: 0.85rem;
+            color: var(--gray);
+            padding-left: 15px;
+        }
+        .index-section li li:before {
+             content: "-";
+             left: 0px;
+        }
+
+        /* Cuadro comparativo */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-size: 0.9rem; 
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px 12px; 
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: var(--light-blue);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Navegación */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+        
+        .nav-btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .nav-btn.next {
+            margin-left: auto;
+        }
+        .nav-btn.prev {
+            margin-right: auto;
+        }
+        .nav-btn:disabled { 
+            background-color: var(--gray);
+            border-color: var(--gray);
+            color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) { 
+            nav ul { gap: 0.4rem; } 
+            nav a { padding: 5px 7px; font-size: 0.75rem; }
+        }
+
+        @media (max-width: 992px) {
+            body { padding-top: 150px; } 
+            .header-content { flex-direction: column; }
+            .logo, .professor-info { text-align: center; width: 100%;}
+            .professor-info { margin-bottom: 15px;}
+            nav { justify-content: center; } 
+            .mobile-menu-btn { display: block; top: 25px; }
+
+            nav ul:not(.show) { display: none; } 
+            nav ul.show {
+                display: flex;
+                position: absolute;
+                top: 100%; 
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                width: 100%;
+                gap: 10px;
+            }
+            nav ul.show li { width: 100%; text-align: center;}
+            nav ul.show a { display: block; padding: 10px; font-size: 0.9rem;} 
+
+            .index-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            section { 
+                 padding-top: 160px; 
+                 margin-top: -160px;
+            }
+            section#inicio {
+                margin-top: 0;
+                padding-top: 0;
+            }
+            .section-header { padding-top: 10px; }
+        }
+        
+        @media (max-width: 768px) {
+            .section-header h2 { font-size: 2rem; }
+            .team-photo { width: 200px; height: 200px; font-size: 4rem; }
+            .content-image { max-width: 100%; height: 250px; }
+            body { padding-top: 180px; }  
+            section { 
+                 padding-top: 190px; 
+                 margin-top: -190px;
+            }
+            section#inicio {
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .team-members { flex-direction: column; width: 100%; }
+            .team-member { width: 100%; }
+            .navigation { flex-direction: column; gap: 15px; }
+            .nav-btn { width: 100%; justify-content: center; }
+            .content-image { height: 200px; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header con menú interactivo -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Tejido Conjuntivo</h1>
+                <div class="subtitle">Monografía</div>
+            </div>
+            <div class="professor-info">
+                Miss: Fabiola Díaz Romero<br>
+                Materia: Fundamentos Biológicos y Químicos en el Ser Humano
+            </div>
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#indice" class="nav-link">Índice</a></li>
+                    <li><a href="#introduccion" class="nav-link">1. Intro</a></li>
+                    <li><a href="#definicion" class="nav-link">2. Def.</a></li>
+                    <li><a href="#caracteristicas" class="nav-link">3. Caract.</a></li>
+                    <li><a href="#funciones" class="nav-link">4. Func.</a></li>
+                    <li><a href="#clasificacion" class="nav-link">5. Clasif.</a></li>
+                    <li><a href="#elementos" class="nav-link">6. Elem.</a></li>
+                    <li><a href="#importancia-enfermeria" class="nav-link">7. Imp. Enf.</a></li>
+                    <li><a href="#patologias" class="nav-link">8. Patol.</a></li>
+                    <li><a href="#prevencion-cuidados" class="nav-link">9. Prev/Cuid.</a></li>
+                    <li><a href="#conclusion" class="nav-link">10. Concl.</a></li>
+                    <li><a href="#bibliografia" class="nav-link">Biblio.</a></li>
+                    <li><a href="#anexos" class="nav-link">Anexos</a></li>
+                    <li><a href="#agradecimientos" class="nav-link">Agrad.</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="active">
+        <div class="container">
+            <div class="team-section">
+               <div class="team-photo">
+                    <img src="foto.jpg" alt="Foto del equipo de exposición de la monografía">
+                </div>
+                <p class="image-caption">Integrantes del Equipo</p> 
+                <div class="team-members">
+                    <div class="team-member">Cotrina, Vanessa</div>
+                    <div class="team-member">Fernández, Milagros</div>
+                    <div class="team-member">Gozar, Angélica</div>
+                    <div class="team-member">Leyva, Angela</div>
+                    <div class="team-member">Olivera, Yenny</div>
+                </div>
+            </div>
+            
+            <div class="welcome-message">
+                <h2>Bienvenidos a nuestra investigación del tejido conjuntivo</h2>
+                <p>En esta página encontrarás una completa guía sobre el tejido conjuntivo, uno de los cuatro tejidos fundamentales del cuerpo humano. Hemos preparado esta enciclopedia interactiva con el objetivo de facilitar la comprensión de su estructura, funciones y clasificación, especialmente dirigida a estudiantes de enfermería y ciencias de la salud.</p>
+                <p>Explora las diferentes secciones utilizando el menú superior o navega secuencialmente utilizando los botones de navegación. ¡Esperamos que esta información resulte valiosa para tu formación profesional!</p>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="indice">Explorar Índice <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Índice -->
+    <section id="indice">
+        <div class="container">
+            <div class="section-header">
+                <h2>Índice de Contenidos</h2>
+                <p>Selecciona cualquier sección para explorar su contenido</p>
+            </div>
+            
+            <div class="index-container">
+                <div class="index-section" data-target="introduccion">
+                    <h3><i class="fas fa-book-open"></i> 1. Introducción</h3>
+                    <p>Visión general del tejido conjuntivo y su importancia.</p>
+                </div>
+                <div class="index-section" data-target="definicion">
+                    <h3><i class="fas fa-book"></i> 2. Definición</h3>
+                    <p>Concepto fundamental del tejido conjuntivo.</p>
+                </div>
+                <div class="index-section" data-target="caracteristicas">
+                    <h3><i class="fas fa-list"></i> 3. Características</h3>
+                    <ul>
+                        <li>3.1. Elasticidad</li>
+                        <li>3.2. Adaptación</li>
+                        <li>... y más</li>
+                    </ul>
+                </div>
+                <div class="index-section" data-target="funciones">
+                    <h3><i class="fas fa-tasks"></i> 4. Funciones</h3>
+                    <ul>
+                        <li>4.1. Sostén y conexión</li>
+                        <li>4.2. Protectora</li>
+                        <li>... y más</li>
+                    </ul>
+                </div>
+                <div class="index-section" data-target="clasificacion">
+                    <h3><i class="fas fa-sitemap"></i> 5. Clasificación</h3>
+                    <ul>
+                        <li>5.1. Tejido Conjuntivo Propio</li>
+                        <li>5.2. Tejido Conjuntivo Especializado</li>
+                    </ul>
+                </div>
+                <div class="index-section" data-target="elementos">
+                    <h3><i class="fas fa-microscope"></i> 6. Elementos Fundamentales</h3>
+                    <ul>
+                        <li>6.1. Células</li>
+                        <li>6.2. Matriz Extracelular</li>
+                        <li>6.3. Fibras</li>
+                    </ul>
+                </div>
+                <div class="index-section" data-target="importancia-enfermeria">
+                    <h3><i class="fas fa-briefcase-medical"></i> 7. Importancia en Enfermería</h3>
+                    <p>Relevancia del tejido conjuntivo en la práctica de enfermería.</p>
+                </div>
+                <div class="index-section" data-target="patologias">
+                    <h3><i class="fas fa-disease"></i> 8. Patologías Relacionadas</h3>
+                    <p>Enfermedades y trastornos asociados al tejido conjuntivo.</p>
+                </div>
+                 <div class="index-section" data-target="prevencion-cuidados">
+                    <h3><i class="fas fa-shield-alt"></i> 9. Prevención, Protección y Cuidados</h3>
+                    <p>Medidas preventivas y cuidados relacionados.</p>
+                </div>
+                <div class="index-section" data-target="conclusion">
+                    <h3><i class="fas fa-flag-checkered"></i> 10. Conclusión</h3>
+                    <p>Resumen y reflexiones finales.</p>
+                </div>
+                <div class="index-section" data-target="bibliografia">
+                    <h3><i class="fas fa-book-bookmark"></i> Bibliografía</h3>
+                    <p>Fuentes y referencias consultadas.</p>
+                </div>
+                <div class="index-section" data-target="anexos">
+                    <h3><i class="fas fa-paperclip"></i> Anexos</h3>
+                    <p>Material complementario.</p>
+                </div>
+                 <div class="index-section" data-target="agradecimientos">
+                    <h3><i class="fas fa-heart"></i> Agradecimientos</h3>
+                    <p>Reconocimientos especiales.</p>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="inicio"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="introduccion">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 1: Introducción -->
+    <section id="introduccion">
+        <div class="container">
+            <div class="section-header">
+                <h2>1. Introducción</h2>
+            </div>
+            <div class="content-box">
+                <p>El tejido conjuntivo, también llamado tejido conectivo, es uno de los cuatro tipos fundamentales de tejidos en el cuerpo humano que desempeña un papel clave en el sostén, protección y conexión de otros tejidos y órganos. A diferencia de los tejidos epiteliales, musculares y nerviosos, el tejido conjuntivo se caracteriza por su gran diversidad celular y su abundante matriz extracelular, lo que le permite adaptarse a múltiples funciones dentro del organismo.</p>
+                <p>Este tejido cumple roles esenciales en la reparación de lesiones, el transporte de sustancias, la respuesta inmunológica y el mantenimiento de la homeostasis corporal. En el ámbito de la salud, su estudio es indispensable para comprender procesos biológicos como la cicatrización, la regeneración celular, la respuesta inflamatoria y las patologías asociadas, como las enfermedades autoinmunes y degenerativas.</p>
+                <p>La presente monografía brinda de manera detallada la estructura, clasificación, funciones y elementos fundamentales del tejido conjuntivo, con un enfoque académico y técnico que permitirá una mejor comprensión. Así mismo, la relevancia del Tejido Conjuntivo en el campo de la Enfermería.</p>
+                <blockquote>"Los tejidos conjuntivos y sus componentes matriciales constituyen una gran proporción de la masa corporal total, desempeñando funciones esenciales como el soporte mecánico, el transporte de fluidos tisulares, la migración celular y la cicatrización de heridas, además de influir en procesos metabólicos de otros tejidos."</blockquote>
+                <div class="content-image">
+                    <img src="foto1.jpg" alt="Ilustración del tejido conjuntivo">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="indice"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="definicion">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Definición -->
+    <section id="definicion">
+        <div class="container">
+            <div class="section-header">
+                <h2>2. Definición del Tejido Conjuntivo</h2>
+            </div>
+            <div class="content-box">
+                <p>El tejido conjuntivo es un grupo de tejidos que se encuentra distribuido por todo el cuerpo; cumplen funciones esenciales de sostén, conexión, protección y transporte. Se caracteriza por su abundante matriz extracelular, la cual está compuesta por fibras estructurales y una sustancia fundamental que permite la interacción entre las células y el entorno tisular.</p>
+                <p>En comparación de otros tejidos, como el epitelial o el muscular, el tejido conjuntivo no está compuesto principalmente por células, sino por una combinación de fibras, sustancia fundamental y células especializadas Esta estructura le otorga una gran versatilidad y adaptabilidad, permitiéndole desempeñar múltiples funciones dentro del organismo.</p>
+                <p>Desde un punto de vista histológico, el tejido conjuntivo se clasifica en tejido conjuntivo propio y tejido conjuntivo especializado, incluyendo variantes como el tejido adiposo, cartilaginoso, óseo, sanguíneo y reticular. Cada uno de estos tipos posee características únicas que contribuyen a la estabilidad y funcionalidad del cuerpo.</p>
+                <p>Además de su papel estructural, el tejido conjuntivo participa activamente en procesos biológicos como la cicatrización, la regeneración celular, la respuesta inmunológica y la regulación metabólica.</p>
+                <div class="content-image">
+                     <img src="foto2.jpg" alt="Esquema general del tejido conjuntivo">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="introduccion"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="caracteristicas">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Características -->
+    <section id="caracteristicas">
+        <div class="container">
+            <div class="section-header">
+                <h2>3. Características del Tejido Conjuntivo</h2>
+            </div>
+            <div class="content-box">
+                <h3>3.1. Elasticidad</h3>
+                <p>La elasticidad del tejido conjuntivo se debe a la presencia de fibras elásticas, compuestas principalmente por elastina. Estas fibras permiten que los tejidos se estiren y recuperen su forma original sin sufrir daños estructurales. Se encuentran en órganos como los pulmones, los vasos sanguíneos y la piel, donde la flexibilidad es crucial para su función.</p>
+                <p>La organización de las fibras elásticas varía según el tipo de tejido y su función biomecánica. En tejidos sometidos a estrés mecánico constante, como los tendones y arterias, las fibras elásticas se organizan en redes tridimensionales que optimizan la resistencia y la capacidad de recuperación.</p>
+                <div class="content-image">
+                    <img src="elasticidad.jpg" alt="Fibras elásticas del tejido conjuntivo">
+                </div>
+
+                <h3>3.2. Adaptación</h3>
+                <p>El tejido conjuntivo tiene una gran capacidad de adaptación a diferentes condiciones fisiológicas y mecánicas. Por ejemplo, el tejido óseo se remodela constantemente en respuesta a cargas mecánicas, mientras que el tejido adiposo puede aumentar o disminuir su volumen según las necesidades energéticas del organismo.</p>
+                <p>La composición de la matriz extracelular cambia en respuesta a estímulos externos, como la inflamación o el envejecimiento. Este proceso es clave en la cicatrización de heridas y en la regeneración tisular, donde la matriz extracelular actúa como un andamio biológico para la proliferación celular.</p>
+                 <div class="content-image">
+                    <img src="Células formando un Tejido Conjuntivo.jpg" alt="Ejemplo de adaptación tisular como la remodelación ósea">
+                </div>
+
+                <h3>3.3. Resistencia</h3>
+                <p>La resistencia del tejido conjuntivo proviene de la fibras de colágeno, que son las más abundantes en la matriz extracelular. Estas fibras proporcionan soporte estructural y protección a los órganos y tejidos, siendo esenciales en estructuras como los tendones, ligamentos y cartílagos.</p>
+                <p>La orientación y densidad de las fibras de colágeno influyen directamente en la resistencia mecánica del tejido. En tejidos sometidos a alta tensión, como los tendones, las fibras de colágeno se alinean en dirección longitudinal, optimizando la transmisión de fuerza.</p>
+                <div class="content-image">
+                     <img src="Condrocitos y Fibras de Colágeno.jpg" alt="Fibras de colágeno en un tendón">
+                </div>
+                
+                <h3>3.4. Vascularización</h3>
+                <p>La vascularización del tejido conjuntivo varía según su tipo. Mientras que el tejido óseo y el tejido adiposo tienen una alta irrigación sanguínea, el cartílago es avascular, lo que limita su capacidad de regeneración y reparación.</p>
+                <p>Investigaciones recientes han utilizado técnicas de imagen avanzadas para analizar la distribución de los vasos sanguíneos en diferentes tipos de tejido conjuntivo. Se ha observado que la vascularización influye en la capacidad de respuesta inmunológica y en la regeneración celular.</p>
+                <div class="content-image">
+                    <img src="Vascularización.jpg" alt="Comparación de vascularización entre hueso y cartílago">
+                </div>
+
+                <h3>3.5. Diversidad Celular</h3>
+                <p>El tejido conjuntivo alberga una gran variedad de células especializadas, como fibroblastos, adipocitos, condrocitos, osteocitos y células inmunitarias. Cada una de estas células cumple funciones específicas, desde la producción de fibras hasta la defensa inmunológica.</p>
+                <p>La interacción entre las células del tejido conjuntivo y la matriz extracelular es clave para la regulación de procesos biológicos como la inflamación y la cicatrización.</p>
+                <div class="content-image">
+                    <img src="diversidad.jpg" alt="Diversos tipos de células del tejido conjuntivo">
+                </div>
+
+                <h3>3.6. Naturaleza Conectiva</h3>
+                <p>Su función principal es conectar y sostener otros tejidos y órganos, formando una red estructural que mantiene la integridad del cuerpo. Además, facilita la comunicación celular y el intercambio de sustancias esenciales.</p>
+                <p>La estructura de la matriz extracelular varía según el tipo de tejido y su función biomecánica. En tejidos como el cartílago, la matriz extracelular actúa como un amortiguador mecánico, protegiendo las articulaciones de impactos.</p>
+                 <div class="content-image">
+                    <img src="naturaleza.jpg" alt="Tejido conjuntivo conectando diferentes tejidos">
+                </div>
+
+                <h3>3.7. Expansión y Contracción</h3>
+                <p>Algunos tipos de tejido conjuntivo, como el tejido muscular y el cartílago, tienen la capacidad de expandirse y contraerse en respuesta a estímulos mecánicos o químicos. Esto es crucial para funciones como la movilidad y la regulación de la presión sanguínea.</p>
+                <p>La elasticidad y la capacidad de contracción del tejido conjuntivo están reguladas por la composición de la matriz extracelular y la interacción celular.</p>
+                <div class="content-image">
+                    <img src="expan.jpg" alt="Ejemplo de expansión y contracción, como un vaso sanguíneo">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="definicion"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="funciones">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Funciones -->
+    <section id="funciones">
+        <div class="container">
+            <div class="section-header">
+                <h2>4. Funciones del Tejido Conjuntivo</h2>
+            </div>
+            <div class="content-box">
+                <h3>4.1. Función de Sostén y Conexión</h3>
+                <p>El tejido conjuntivo actúa como un soporte estructural que mantiene unidos los diferentes tejidos y órganos del cuerpo. Su función principal es proporcionar estabilidad y resistencia a los órganos y sistemas del cuerpo, permitiendo que cada tejido cumpla su función sin separarse ni perder su forma. Ejemplos incluyen los tendones, que conectan músculos con huesos, y los ligamentos, que unen huesos entre sí.</p>
+                <div class="content-image">
+                     <img src="funcion1.jpg" alt="Tendones y ligamentos como ejemplo de sostén y conexión">
+                </div>
+
+                <h3>4.2. Función Protectora</h3>
+                <p>Protege los órganos y tejidos contra daños físicos y agentes externos. Algunos tipos de tejido conjuntivo, como el cartílago y el tejido óseo, protegen estructuras vitales del cuerpo contra impactos y lesiones. Además, el tejido adiposo protege órganos internos al actuar como un colchón que absorbe golpes.</p>
+                <div class="content-image">
+                    <img src="funcion2.jpg" alt="Caja torácica (hueso y cartílago) protegiendo órganos internos">
+                </div>
+
+                <h3>4.3. Función Transportadora</h3>
+                <p>Facilita el movimiento de sustancias esenciales dentro del organismo. El tejido conjuntivo sanguíneo transporta oxígeno, nutrientes y hormonas a todas las células del cuerpo. También ayuda a eliminar productos de desecho, asegurando el buen funcionamiento de los órganos.</p>
+                <div class="content-image">
+                    <img src="funcion3.jpg" alt="Vasos sanguíneos transportando células y nutrientes">
+                </div>
+                
+                <h3>4.4. Función Almacenadora</h3>
+                <p>Actúa como depósito de sustancias necesarias para el cuerpo. El tejido adiposo almacena energía en forma de grasa, que puede ser utilizada cuando el organismo lo requiere. También contribuye a la regulación térmica, manteniendo el calor corporal.</p>
+                <div class="content-image">
+                    <img src="funcion4.jpg" alt="Células de tejido adiposo almacenando grasa">
+                </div>
+
+                <h3>4.5. Función Reparadora</h3>
+                <p>Participa en la cicatrización y regeneración celular tras una lesión. Cuando un tejido es dañado, los fibroblastos del tejido conjuntivo activan la producción de colágeno para reparar la zona afectada. Además, la matriz extracelular juega un papel fundamental en la regeneración celular.</p> 
+                <div class="content-image">
+                    <img src="funcion5.jpg" alt="Proceso de cicatrización de una herida cutánea">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="caracteristicas"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="clasificacion">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Clasificación -->
+    <section id="clasificacion">
+        <div class="container">
+            <div class="section-header">
+                <h2>5. Clasificación del Tejido Conjuntivo</h2>
+            </div>
+            <div class="content-box">
+                <p>El tejido conjuntivo se clasifica en dos grandes grupos: tejido conjuntivo propio y tejido conjuntivo especializado. Esta clasificación se basa en la composición celular, la matriz extracelular y la función que desempeña en el organismo.</p>
+                <div class="content-image">
+                     <img src="clasi1.jpg" alt="Diagrama de la clasificación general del tejido conjuntivo">
+                </div>
+
+                <h3>5.1. Tejido Conjuntivo Propio</h3>
+                <p>El tejido conjuntivo propio es una categoría del tejido conjuntivo se encarga de proporcionar soporte estructural y conexión entre los diferentes órganos y tejidos. Se subdivide en:</p>
+                
+                <h4>5.1.1. Tejido Conjuntivo Laxo</h4>
+                <p>El tejido conjuntivo laxo, también conocido como tejido areolar, es un tipo de tejido conjuntivo caracterizado por su estructura flexible y poco compacta, lo que le permite actuar como un soporte estructural y metabólico para otros tejidos y órganos. Su matriz extracelular está compuesta por fibras de colágeno, fibras elásticas y reticulares, inmersas en una sustancia fundamental rica en agua y proteoglicanos.</p>
+                <p>Este tejido contiene células residentes, como fibroblastos, adipocitos, mastocitos y macrófagos, además de células móviles del sistema inmunológico, como linfocitos y plasmocitos, que participan en la defensa del organismo. Se encuentra ampliamente distribuido en el cuerpo, formando parte de la dermis, mucosas, membranas serosas y envolturas de órganos.</p>
+                <p>Su función principal es proporcionar soporte mecánico, facilitar el intercambio de nutrientes y participar en respuestas inmunológicas, ya que es el primer sitio donde los patógenos pueden ser detectados y eliminados por células inmunitarias.</p>
+                <div class="content-image">
+                    <img src="clasi2.jpg" alt="Microfotografía de tejido conjuntivo laxo (areolar)">
+                </div>
+
+                <h4>5.1.2. Tejido Conjuntivo Denso</h4>
+                <p>El tejido conjuntivo denso es un tipo de tejido conjuntivo caracterizado por su alta concentración de fibras de colágeno, lo que le otorga gran resistencia y poca flexibilidad. Se divide en dos tipos principales:</p>
+                
+                <h5>5.1.2.1. Denso Regular</h5>
+                <p>El tejido conjuntivo denso regular es un tipo de tejido conjuntivo caracterizado por la organización paralela de fibras de colágeno, lo que le otorga gran resistencia a la tensión en una dirección específica. Su estructura compacta y alineada permite que soporte fuerzas mecánicas intensas, siendo fundamental en la formación de tendones, ligamentos y aponeurosis.</p>
+                <p>Este tejido tiene poca sustancia fundamental y escasas células, principalmente fibroblastos, que se encargan de la producción y mantenimiento de las fibras colágenas. Debido a su baja vascularización, su capacidad de regeneración es limitada, lo que hace que lesiones en tendones y ligamentos sean de recuperación lenta.</p>
+                 <div class="content-image">
+                    <img src="clasi3.jpg" alt="Microfotografía de tejido conjuntivo denso regular">
+                </div>
+
+                <h5>5.1.2.2. Denso Irregular</h5>
+                <p>El tejido conjuntivo denso irregular es un tipo de tejido caracterizado por la disposición aleatoria de sus fibras de colágeno, formando una red tridimensional que le otorga gran resistencia a fuerzas multidireccionales. Su estructura le permite soportar tensiones en distintas direcciones, lo que lo hace esencial en áreas como la dermis de la piel, cápsulas fibrosas de órganos, submucosa del tracto digestivo y envolturas de músculos y nervios.</p>
+                <p>Este tejido contiene fibroblastos dispersos, algunas fibras elásticas y una sustancia fundamental mínima. Su función principal es proteger y dar soporte estructural, evitando el desgarro de los tejidos ante fuerzas externas.</p>
+                 <div class="content-image">
+                     <img src="clasi4.jpg" alt="Microfotografía de tejido conjuntivo denso irregular">
+                </div>
+
+                <h4>5.1.3. Diferencias entre Tejido Laxo y Denso</h4>
+                <p>El tejido laxo es más flexible y menos resistente, mientras que el tejido denso es más compacto y fuerte. La distribución de las fibras de colágeno es clave en estas diferencias, ya que en el tejido laxo están dispersas y en el tejido denso están organizadas en haces compactas.</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Tejido Conjuntivo Laxo</th>
+                            <th>Tejido Conjuntivo Denso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fibras de Colágeno</td>
+                            <td>Menos abundantes, dispersas</td>
+                            <td>Muy abundantes, en haces compactos</td>
+                        </tr>
+                        <tr>
+                            <td>Sustancia Fundamental</td>
+                            <td>Abundante</td>
+                            <td>Escasa</td>
+                        </tr>
+                        <tr>
+                            <td>Celularidad</td>
+                            <td>Relativamente alta y diversa</td>
+                            <td>Menor, predominantemente fibroblastos</td>
+                        </tr>
+                        <tr>
+                            <td>Flexibilidad</td>
+                            <td>Alta</td>
+                            <td>Baja</td>
+                        </tr>
+                        <tr>
+                            <td>Resistencia</td>
+                            <td>Menor</td>
+                            <td>Alta (especialmente el regular a tensión unidireccional)</td>
+                        </tr>
+                        <tr>
+                            <td>Vascularización</td>
+                            <td>Buena</td>
+                            <td>Pobre (especialmente el regular)</td>
+                        </tr>
+                        <tr>
+                            <td>Localización Típica</td>
+                            <td>Dermis papilar, mucosas, alrededor de órganos</td>
+                            <td>Tendones, ligamentos (regular); Dermis reticular, cápsulas de órganos (irregular)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>5.2. Tejido Conjuntivo Especializado</h3>
+                <p>Este grupo incluye tejidos con funciones específicas dentro del organismo:</p>
+
+                <h4>5.2.1. Tejido Adiposo</h4>
+                <p>El tejido adiposo almacena energía en forma de lípidos y actúa como aislante térmico.</p> 
+                <p>Se divide en:</p>
+                <h5>5.2.1.1. Tejido Adiposo Blanco</h5>
+                <p>El tejido adiposo blanco es el principal reservorio de energía del organismo y constituye aproximadamente el 20-25% del peso corporal en adultos. Está compuesto por adipocitos uniloculares, células especializadas en el almacenamiento de triglicéridos, que actúan como fuente energética en períodos de déficit calórico. Además de su función metabólica, el tejido adiposo blanco desempeña un papel clave en la regulación térmica, proporcionando aislamiento contra el frío, y en la protección mecánica, amortiguando impactos sobre órganos vitales.</p>
+                <p>También es un órgano endocrino activo, secretando hormonas como la leptina, que regula el apetito y el metabolismo energético. Se distribuye en depósitos subcutáneos y viscerales, con variaciones en su composición según factores como la dieta y el estado metabólico. Alteraciones en su función están asociadas a trastornos metabólicos, como la obesidad y la resistencia a la insulina.</p>
+                <div class="content-image">
+                     <img src="clasi5.jpg" alt="Microfotografía de tejido adiposo blanco">
+                </div>
+
+                <h5>5.2.1.2. Tejido Adiposo Pardo</h5>
+                <p>El tejido adiposo pardo o marrón, también conocido como grasa parda es un tipo de tejido especializado en la producción de calor mediante un proceso llamado termogénesis sin escalofríos.</p>
+                <p>A diferencia del tejido adiposo blanco, sus células contienen numerosas mitocondrias con altos niveles de termogenina (UCP1), una proteína que permite la generación de calor al disipar energía en lugar de almacenarla. Este tejido es abundante en recién nacidos y mamíferos hibernantes, ayudando a mantener la temperatura corporal en condiciones de frío extremo. En adultos, su presencia es más limitada, pero se encuentra en regiones como el cuello, la espalda y alrededor de órganos vitales. Su activación está regulada por el sistema nervioso simpático, y estudios recientes sugieren que podría desempeñar un papel en el control del metabolismo energético, con potenciales aplicaciones en el tratamiento de la obesidad y enfermedades metabólicas.</p>
+                <p>El tejido adiposo pardo, también conocido como grasa parda, es un tipo especializado de tejido que desempeña un papel clave en la producción de calor corporal mediante un proceso llamado termogénesis. Su color marrón pardo se debe a su alto contenido de mitocondrias y rica vascularización. Se encuentra principalmente en recién nacidos, pero en adultos persiste en áreas como el cuello, el dorso y el mediastino.</p> 
+                <div class="content-image">
+                     <img src="clasi6.jpg" alt="Microfotografía de tejido adiposo pardo">
+                </div>
+                
+                <h4>5.2.2. Tejido Cartilaginoso</h4>
+                <p>El tejido cartilaginoso proporciona soporte estructural y flexibilidad en articulaciones y estructuras como la tráquea. Se clasifica en:</p>
+                <h5>5.2.2.1. Cartílago Hialino</h5>
+                <p>Presente en articulaciones y vías respiratorias. El cartílago hialino es el tipo de cartílago más abundante en el cuerpo humano y se caracteriza por su apariencia translúcida y homogénea. Está compuesto principalmente por colágeno tipo II, proteoglicanos como el aggrecan y glicoproteínas estructurales como la condronectina, que le confieren resistencia y elasticidad.</p>
+                <p>Se encuentra en diversas estructuras, como las superficies articulares de los huesos, los cartílagos costales, la tráquea, los bronquios y el tabique nasal. Su función principal es proporcionar soporte estructural, reducir la fricción en las articulaciones y facilitar el crecimiento óseo durante el desarrollo. A diferencia de otros tipos de cartílago, el hialino es avascular, lo que limita su capacidad de regeneración. En el envejecimiento y en condiciones como la osteoartritis, su degradación puede afectar la movilidad y generar dolor articular.</p>
+                 <div class="content-image">
+                    <img src="clasi7.jpg" alt="Microfotografía de cartílago hialino">
+                </div>
+
+                <h5>5.2.2.2. Cartílago Elástico</h5>
+                <p>El cartílago elástico es un tipo de cartílago caracterizado por su gran flexibilidad y capacidad de recuperación tras la deformación. Su matriz extracelular contiene fibras elásticas en abundancia, además de colágeno tipo II, lo que le permite mantener su forma tras ser sometido a presión o tensión. Se encuentra en estructuras como el pabellón auricular, la epiglotis, la trompa de Eustaquio y algunos cartílagos laríngeos, donde su elasticidad es esencial para la función anatómica.</p> 
+                <p>A diferencia del cartílago hialino, el cartílago elástico posee una mayor cantidad de fibras elásticas, lo que le confiere una textura más flexible y resistente. Su función principal es proporcionar soporte estructural sin comprometer la movilidad, permitiendo que las estructuras mantengan su forma y recuperen su posición original tras la manipulación. Aunque es un tejido vascularizado, su capacidad de regeneración es limitada, lo que puede influir en su reparación tras lesiones o procesos degenerativos.</p>
+                 <div class="content-image">
+                     <img src="clasi8.jpg" alt="Microfotografía de cartílago elástico">
+                </div>
+                
+                <h5>5.2.2.3. Cartílago Fibroso</h5>
+                <p>El cartílago fibroso, también conocido como fibrocartílago, es un tipo de cartílago caracterizado por su gran resistencia mecánica y capacidad de amortiguación. Su matriz extracelular contiene colágeno tipo I y tipo II, lo que le confiere una estructura densa y firme, ideal para soportar fuerzas de tracción, compresión y desgarro.</p> 
+                <p>A diferencia del cartílago hialino y el cartílago elástico, el fibrocartílago no posee pericondrio, lo que limita su capacidad de regeneración. Se encuentra en estructuras sometidas a alta presión y fricción, como los discos intervertebrales, la sínfisis del pubis, los meniscos de la rodilla y las inserciones de tendones y ligamentos en el hueso. Su función principal es absorber impactos, distribuir cargas mecánicas y proporcionar estabilidad estructural en articulaciones y zonas de alta tensión.</p> 
+                <p>Debido a su composición, el fibrocartílago es esencial para la biomecánica del cuerpo, ya que protege las articulaciones y facilita el movimiento sin comprometer la integridad de los tejidos conectivos.</p>
+                 <div class="content-image">
+                   <img src="clasi9.jpg" alt="Microfotografía de cartílago fibroso">
+                </div>
+
+                <h4>5.2.3. Tejido Óseo</h4>
+                <p>El tejido óseo es un tipo de tejido conjuntivo especializado que forma la estructura del esqueleto humano, proporcionando soporte, protección y movilidad. Se compone de una matriz extracelular altamente mineralizada, rica en colágeno tipo I, calcio y fosfato, lo que le confiere su rigidez y resistencia mecánica. Además de su función estructural, el tejido óseo participa en la homeostasis mineral, almacenando y liberando calcio según las necesidades del organismo.</p> 
+                <p>Su regeneración y mantenimiento dependen de factores como la nutrición, actividad física y regulación hormonal, siendo clave en la salud ósea y la prevención de enfermedades como la osteoporosis. Existen dos tipos principales de tejido óseo:</p>
+                <h5>5.2.3.1. Hueso Compacto</h5>
+                <p>El hueso compacto, también conocido como hueso cortical, es la forma más densa y resistente del tejido óseo constituyendo aproximadamente el 80% del esqueleto humano. Su estructura está organizada en unidades llamadas osteonas o sistemas de Havers, que contienen canales vasculares para la nutrición de los osteocitos.</p>
+                <p>Este tipo de hueso forma la capa externa de los huesos largos y proporciona soporte mecánico, protección y resistencia a la presión y tensión. Su matriz extracelular está compuesta principalmente por colágeno tipo I y sales minerales de calcio y fosfato, lo que le confiere su dureza característica. Además, el hueso compacto es fundamental en la homeostasis mineral, regulando los niveles de calcio en el organismo. Aunque es menos poroso que el hueso esponjoso, su sistema de canales permite la circulación de nutrientes y la comunicación celular para el mantenimiento óseo.</p>
+                 <div class="content-image">
+                    <img src="clasi10.jpg" alt="Microfotografía de hueso compacto mostrando osteonas">
+                </div>
+                
+                <h5>5.2.3.2. Hueso Esponjoso</h5>
+                <p>El hueso esponjoso, también conocido como hueso trabecular o canceloso, es un tipo de tejido óseo caracterizado por su estructura porosa y ligera, formada por una red de trabéculas óseas que le confieren resistencia sin añadir peso excesivo. Se encuentra principalmente en los extremos de los huesos largos, dentro de las vértebras, costillas, cráneo y pelvis, y en el interior de los huesos planos. Su función principal es reducir la densidad ósea, distribuir cargas mecánicas y albergar médula ósea roja, donde ocurre la hematopoyesis, el proceso de producción de células sanguíneas.</p> 
+                <p>A diferencia del hueso compacto, el hueso esponjoso no contiene osteonas, sino que sus trabéculas están organizadas según las líneas de tensión biomecánica, lo que optimiza su resistencia estructural. Su alta vascularización facilita el intercambio de nutrientes y la regeneración ósea, siendo clave en la reparación de fracturas y el mantenimiento de la homeostasis mineral.</p>
+                 <div class="content-image">
+                     <img src="clasi11.jpg" alt="Microfotografía de hueso esponjoso mostrando trabéculas">
+                </div>
+
+                <h4>5.2.4. Tejido Sanguíneo</h4> 
+                <p>El tejido sanguíneo es un tipo de tejido conjuntivo especializado que circula por el sistema cardiovascular, desempeñando funciones esenciales en el transporte de oxígeno, nutrientes, hormonas y desechos metabólicos. Su composición incluye una matriz líquida llamada plasma, que contiene proteínas, electrolitos y otras sustancias disueltas, y elementos celulares como glóbulos rojos (eritrocitos), glóbulos blancos (leucocitos) y plaquetas. Además de su papel en la homeostasis, el tejido sanguíneo contribuye a la regulación de la temperatura corporal y al equilibrio ácido-base del organismo.</p> 
+                <p>Su producción ocurre en la médula ósea, donde se generan nuevas células sanguíneas mediante el proceso de hematopoyesis. El tejido sanguíneo transporta oxígeno, nutrientes y células inmunitarias a través del cuerpo.</p>
+                <h5>5.2.4.1. Glóbulos Rojos</h5> 
+                <p>Los glóbulos rojos, también llamados eritrocitos, son células sanguíneas especializadas en el transporte de oxígeno y dióxido de carbono a través del cuerpo. Su estructura es bicóncava y anucleada, lo que maximiza su superficie para el intercambio de gases y les permite atravesar los capilares más estrechos. Contienen hemoglobina, una proteína rica en hierro que se une al oxígeno en los pulmones y lo libera en los tejidos, mientras que también facilita la eliminación de dióxido de carbono.</p> 
+                <p>Se producen en la médula ósea roja mediante un proceso llamado eritropoyesis, y tienen una vida media de aproximadamente 120 días, tras los cuales son eliminados por el bazo y el hígado. Su cantidad y funcionalidad son esenciales para la oxigenación celular, y alteraciones en su número pueden provocar condiciones como anemia o policitemia.</p>
+                 <div class="content-image">
+                     <img src="funcion3.jpg" alt="Glóbulos rojos (eritrocitos)">
+                </div>
+
+                <h5>5.2.4.2. Glóbulos Blancos</h5>
+                <p>Los glóbulos blancos, también llamados leucocitos, son células del tejido sanguíneo esenciales para la defensa inmunológica del organismo. Se originan en la médula ósea y circulan por la sangre y los tejidos, protegiendo contra infecciones, agentes patógenos y células anormales. Se clasifican en granulocitos (neutrófilos, eosinófilos y basófilos) y agranulocitos (linfocitos y monocitos), cada uno con funciones específicas en la respuesta inmune. Los neutrófilos son los más abundantes y actúan como primera línea de defensa mediante la fagocitosis de microorganismos.</p> 
+                <p>Los eosinófilos y basófilos participan en respuestas alérgicas y en la eliminación de parásitos. Los linfocitos, que incluyen células T, B y NK, coordinan la inmunidad adaptativa y producen anticuerpos. Los monocitos, al madurar en los tejidos, se convierten en macrófagos, encargados de eliminar restos celulares y patógenos. Su cantidad y función son clave para la salud inmunológica, y alteraciones en su número pueden indicar infecciones, enfermedades autoinmunes o trastornos hematológicos.</p>  
+                <p>Las células T, B y NK son tipos de linfocitos, que forman parte del sistema inmunológico y desempeñan funciones clave en la defensa del organismo contra infecciones y enfermedades.</p>  
+                <ul>
+                    <li>Células T (linfocitos T): Se originan en la médula ósea y maduran en el timo. Son responsables de la inmunidad celular, atacando directamente células infectadas o anormales. Se dividen en células T colaboradoras (CD4), que coordinan la respuesta inmune, y células T citotóxicas (CD8), que destruyen células infectadas o cancerosas.</li>
+                    <li>Células B (linfocitos B): Se desarrollan en la médula ósea y son esenciales para la inmunidad humoral, produciendo anticuerpos que neutralizan patógenos. También pueden diferenciarse en células de memoria, que permiten una respuesta más rápida ante futuras infecciones.</li>  
+                    <li>Células NK (Natural Killer): Son linfocitos especializados en la detección y eliminación de células infectadas o tumorales sin necesidad de activación previa. Actúan mediante la liberación de sustancias citotóxicas y desempeñan un papel crucial en la inmunidad innata.</li>  
+                </ul>
+                <p>Estos linfocitos trabajan en conjunto para proteger el organismo contra infecciones virales, bacterianas y enfermedades como el cáncer.</p>
+                 <div class="content-image">
+                   <img src="clasi12.jpg" alt="Diferentes tipos de glóbulos blancos (leucocitos)">
+                </div>
+
+                <h5>5.2.4.3. Plaquetas</h5>
+                <p>Las plaquetas, también llamadas trombocitos, son fragmentos celulares esenciales para la coagulación sanguínea y la prevención de hemorragias. Se originan en la médula ósea a partir de células precursoras llamadas megacariocitos, que liberan miles de plaquetas en la circulación. Aunque no son células completas, contienen gránulos con factores de coagulación y proteínas que facilitan la adhesión a las paredes de los vasos sanguíneos dañados. Su función principal es formar un tapón plaquetario en el sitio de una lesión, activando la cascada de coagulación para generar un coágulo estable que detenga el sangrado. Además, participan en la reparación vascular y en procesos inflamatorios.</p> 
+                <p>Un recuento anormal de plaquetas puede provocar trombocitopenia (bajo número de plaquetas, aumentando el riesgo de sangrado) o trombocitosis (exceso de plaquetas, favorecendo la formación de coágulos anormales).</p> 
+                 <div class="content-image">
+                     <img src="clasi13.jpg" alt="Plaquetas (trombocitos)">
+                </div>
+                
+                <h4>5.2.5. Tejido Reticular</h4>
+                <p>El tejido reticular es un tipo de tejido conjuntivo especializado que forma una red estructural de soporte en órganos como el bazo, ganglios linfáticos, médula ósea e hígado. Su matriz extracelular está compuesta principalmente por fibras reticulares, que son una variante del colágeno tipo III, organizadas en una malla tridimensional que facilita la filtración celular y la interacción entre células inmunitarias.</p> 
+                <p>Este tejido es fundamental para la función inmunológica, ya que proporciona un entorno adecuado para la proliferación y diferenciación de células como los linfocitos y macrófagos. Además, participa en la hematopoyesis, albergando células madre en la médula ósea roja. Su estructura flexible y porosa permite la retención y distribución de células sanguíneas, contribuyendo a la homeostasis del sistema linfático y hematopoyético.</p> 
+                <div class="content-image">
+                     <img src="clasi14.jpg" alt="Microfotografía de tejido reticular">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="funciones"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="elementos">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 6: Elementos Fundamentales -->
+    <section id="elementos">
+        <div class="container">
+            <div class="section-header">
+                <h2>6. Elementos Fundamentales del Tejido Conjuntivo</h2>
+            </div>
+            <div class="content-box">
+                <h3>6.1. Células del Tejido Conjuntivo</h3>  
+                <p>El tejido conjuntivo está compuesto por diversos tipos de células que desempeñan funciones clave en la estructura, defensa y regeneración del organismo. Estas células pueden clasificarse en células residentes y células móviles, según su permanencia en el tejido.</p>  
+                <h4>6.1.1. Células Residentes del Tejido Conjuntivo</h4> 
+                <p>Las células residentes del tejido conjuntivo son aquellas que permanecen de manera estable en el tejido y desempeñan funciones esenciales en la estructura, mantenimiento y defensa del organismo. Además, son fundamentales para la homeostasis del tejido conjuntivo, ya que contribuyen a su regeneración, defensa y mantenimiento estructural. Estas células incluyen:</p> 
+                <ul>
+                    <li>Fibroblastos</li>
+                    <li>Adipocitos</li>
+                    <li>Condrocitos</li>
+                    <li>Osteocitos</li>
+                    <li>Osteoblastos</li>
+                    <li>Osteoclastos</li>
+                    <li>Mastocitos</li>
+                    <li>Macrófagos (residentes tisulares)</li>
+                </ul>
+                <div class="content-image">
+                    <img src="elementos1.png" alt="Diagrama de las células residentes del tejido conjuntivo">
+                </div>
+
+                <h5>6.1.1.1. Fibroblastos</h5>
+                <p>Los fibroblastos son las células más abundantes del tejido conjuntivo y desempeñan un papel clave en la síntesis y mantenimiento de la matriz extracelular. Son células fusiformes y alargadas, con un núcleo ovalado y abundante retículo endoplasmático rugoso, lo que les permite producir colágeno, elastina, fibras reticulares y proteoglicanos. Su función principal es mantener la estructura del tejido conjuntivo, facilitando la reparación de heridas y la regeneración tisular.</p>  
+                <p>Los fibroblastos pueden encontrarse en dos estados funcionales:</p>  
+                <ul>
+                    <li>Fibroblastos activos, que tienen una alta actividad metabólica y participan en la producción de matriz extracelular.</li>  
+                    <li>Fibrocitos, que son la forma inactiva y menos secretora de los fibroblastos.</li> 
+                </ul>
+                <p>Además, algunos fibroblastos pueden diferenciarse en miofibroblastos, que poseen propiedades contráctiles y participan en la cicatrización de heridas.</p> 
+                <div class="content-image">
+                    <img src="elementos2.jpg" alt="Fibroblasto del tejido conjuntivo">
+                </div>
+                <h5>6.1.1.2. Adipocitos</h5>
+                <p>Los adipocitos son células especializadas del tejido adiposo, cuya función principal es el almacenamiento de energía en forma de lípidos. Se originan a partir de células madre mesenquimales y se diferencian en dos tipos principales:</p>  
+                <ul>
+                    <li>Adipocitos blancos: Son los más abundantes en adultos y contienen una única gran gota de lípidos en su citoplasma. Su núcleo es aplanado y periférico, y su función es almacenar energía y secretar hormonas como la leptina, que regula el metabolismo energético.</li>  
+                    <li>Adipocitos marrones: Son multiloculares, es decir, poseen múltiples gotas lipídicas y una gran cantidad de mitocondrias, lo que les permite generar calor mediante termogénesis. Son más comunes en recién nacidos y mamíferos hibernantes.</li>  
+                </ul>
+                <p>Los adipocitos desempeñan un papel clave en la homeostasis energética, regulando el almacenamiento y liberación de lípidos según las necesidades del organismo. Además, participan en la secreción de adipocinas, moléculas que influyen en procesos metabólicos e inflamatorios.</p>
+                <div class="content-image">
+                    <img src="elementos3.jpg" alt="Adipocitos blancos y marrones">
+                </div>
+                <h5>6.1.1.3. Condrocitos</h5>
+                <p>Los condrocitos son las células especializadas del cartílago, responsables de la producción y mantenimiento de la matriz extracelular. Se originan a partir de condroblastos, que secretan colágeno tipo II, proteoglicanos y glucosaminoglicanos, esenciales para la estructura y función del cartílago. Estas células se encuentran dentro de lagunas o cavidades llamadas lacunas, rodeadas por la matriz cartilaginosa que ellas mismas generan.</p>  
+                <p>Los condrocitos desempeñan un papel clave en la homeostasis del cartílago, regulando la síntesis y degradación de la matriz extracelular. Debido a la ausencia de vasos sanguíneos en el cartílago, dependen de la difusión de nutrientes desde el líquido sinovial para su supervivencia.</p> 
+                <div class="content-image">
+                    <img src="elementos4.jpg" alt="Condrocitos en su laguna dentro del cartílago">
+                </div>
+                <h5>6.1.1.4. Osteocitos</h5>
+                <p>Los osteocitos son las células más abundantes del tejido óseo y desempeñan un papel clave en la regulación del metabolismo óseo. Se originan a partir de osteoblastos, que quedan atrapados en la matriz ósea dentro de pequeñas cavidades llamadas lagunas. Desde allí, extienden prolongaciones citoplasmáticas a través de los canalículos, formando una red de comunicación que les permite intercambiar nutrientes y señales con otras células óseas.</p>  
+                <p>Su función principal es mantener la homeostasis del hueso, regulando la formación y resorción ósea mediante la liberación de señales químicas que influyen en la actividad de osteoblastos y osteoclastos. También participan en la adaptación del hueso a cargas mecánicas, fortaleciendo la estructura ósea en respuesta al ejercicio o debilitándola en condiciones de inactividad.</p>  
+                <p>Los osteocitos pueden intervenir en la liberación de calcio cuando los niveles en sangre son bajos, contribuyendo a la regulación mineral del organismo. Su disfunción o muerte prematura está relacionada con enfermedades como la osteoporosis y la osteoartritis.</p>  
+                <div class="content-image">
+                    <img src="elementos5.jpg" alt="Osteocitos en la matriz ósea">
+                </div>
+                <h5>6.1.1.5. Osteoblastos</h5>
+                <p>Los osteoblastos son células especializadas del tejido óseo responsables de la formación y mineralización del hueso. Se originan a partir de células osteoprogenitoras y se encuentran principalmente en el periostio y endostio, donde participan activamente en la síntesis de matriz ósea.</p>  
+                <p>Su función principal es la producción de osteoide, una matriz orgánica compuesta por colágeno tipo I, proteoglicanos y glicoproteínas, que posteriormente se mineraliza con sales de calcio y fosfato para formar hueso maduro. Además, los osteoblastos liberan enzimas como la fosfatasa alcalina, que facilitan la mineralización ósea.</p>  
+                <p>Una vez que completan su función, los osteoblastos pueden diferenciarse en osteocitos, que quedan atrapados en la matriz ósea y regulan la homeostasis del hueso, o pueden sufrir apoptosis si ya no son necesarios. Su actividad está regulada por hormonas como la parathormona, calcitonina y vitamina D, que influyen en el equilibrio entre formación y resorción ósea.</p>  
+                <div class="content-image">
+                    <img src="elementos6.jpg" alt="Osteoblastos formando nuevo tejido óseo">
+                </div>
+                <h5>6.1.1.6. Osteoclastos</h5>
+                <p>Los osteoclastos son células especializadas del tejido óseo encargadas de la resorción ósea, es decir, la degradación del hueso para su remodelación y mantenimiento. Son células multinucleadas derivadas de la línea monocito-macrofágica, lo que les permite una alta capacidad de degradación de la matriz ósea.</p>  
+                <p>Su función principal es disolver el tejido óseo viejo o dañado, liberando enzimas lisosómicas y ácidos que degradan la matriz mineralizada. Este proceso ocurre en estructuras llamadas lagunas de Howship, donde los osteoclastos generan una borde festoneado que facilita la liberación de sustancias degradantes.</p>  
+                <p>Los osteoclastos juegan un papel clave en la homeostasis del calcio, regulando su liberación en sangre bajo la influencia de hormonas como la parathormona (PTH) y la calcitonina. Su actividad está equilibrada con la de los osteoblastos, que generan nuevo tejido óseo, asegurando la renovación constante del esqueleto.</p>  
+                 <div class="content-image">
+                    <img src="elementos7.jpg" alt="Osteoclasto en una laguna de Howship realizando resorción ósea">
+                </div>
+                <h5>6.1.1.7. Mastocitos</h5>
+                <p>Los mastocitos son células del sistema inmunológico innato que desempeñan un papel clave en la respuesta inflamatoria y alérgica. Se originan en la médula ósea y migran hacia los tejidos, donde permanecen en la piel, mucosas y órganos como los pulmones y el tracto digestivo.</p>  
+                <p>Su función principal es la liberación de mediadores químicos, como histamina, heparina y citocinas, almacenados en sus gránulos. Estos mediadores regulan la vasodilatación, permeabilidad vascular y activación de otras células inmunitarias, facilitando la defensa contra patógenos y la reparación tisular.</p>  
+                <p>Los mastocitos también participan en la respuesta alérgica, activándose ante la presencia de alérgenos y desencadenando síntomas como inflamación, picazón y broncoconstricción. En casos extremos, su activación excesiva puede provocar anafilaxia, una reacción alérgica grave.</p>  
+                <p>Además de su papel en la inmunidad, los mastocitos contribuyen a la angiogénesis, cicatrización de heridas y regulación de la homeostasis tisular.</p>      
+                 <div class="content-image">
+                    <img src="elementos8.jpg" alt="Mastocito con gránulos citoplasmáticos">
+                </div>
+                <h5>6.1.1.8. Macrófagos</h5>
+                <p>Los macrófagos son células especializadas del sistema inmunológico innato, encargadas de la fagocitosis, es decir, la eliminación de microorganismos, células muertas y restos celulares. Se originan a partir de monocitos, que migran desde la sangre hacia los tejidos y se diferencian en macrófagos específicos según su ubicación.</p>  
+                <p>Existen distintos tipos de macrófagos según el tejido donde residen:</p>  
+                <ul>
+                    <li>Macrófagos alveolares (pulmones), que eliminan partículas inhaladas y patógenos.</li>  
+                    <li>Células de Kupffer (hígado), que participan en la eliminación de toxinas y células envejecidas.</li>  
+                    <li>Microglía (sistema nervioso central), que protege el cerebro contra infecciones y lesiones.</li>  
+                    <li>Macrófagos esplénicos (bazo), que eliminan glóbulos rojos envejecidos.</li>  
+                </ul>
+                <p>Además de su función en la defensa inmunológica, los macrófagos regulan la inflamación, la cicatrización de heridas y el metabolismo del hierro.</p> 
+                <div class="content-image">
+                    <img src="elementos9.jpg" alt="Macrófago realizando fagocitosis">
+                </div>
+                <h4>6.1.2. Células Móviles del Tejido Conjuntivo</h4>
+                <p>Las células móviles del tejido conjuntivo, también llamadas células transitorias o migratorias, son aquellas que pueden desplazarse dentro del tejido en respuesta a estímulos como inflamación, infección o reparación tisular. Entre las principales células móviles se encuentran:</p>  
+                
+                <h5>6.1.2.1. Linfocitos</h5>
+                <p>Los linfocitos del tejido conjuntivo son células inmunitarias clave que participan en la respuesta adaptativa del sistema inmunológico. Se originan en la médula ósea y circulan por la sangre hasta migrar hacia los tejidos conjuntivos, donde desempeñan funciones de defensa y regulación inmunológica.</p>  
+                <p>Se clasifican en tres tipos principales:</p>  
+                <ul>
+                    <li>Linfocitos B, que producen anticuerpos y participan en la inmunidad humoral.</li>  
+                    <li>Linfocitos T, que incluyen células T colaboradoras (CD4), que coordinan la respuesta inmune, y células T citotóxicas (CD8), que destruyen células infectadas o anormales.</li>  
+                    <li>Células NK (Natural Killer), que eliminan células tumorales y virus sin necesidad de activación previa.</li>  
+                </ul>
+                <p>En el tejido conjuntivo, los linfocitos se activan ante la presencia de antígenos, contribuyendo a la memoria inmunológica y a la protección del organismo contra infecciones y enfermedades.</p>  
+                <div class="content-image">
+                    <img src="elementos10.jpg" alt="Linfocitos T y B">
+                </div>           
+                <h5>6.1.2.2. Plasmocitos</h5>
+                <p>Los plasmocitos, también conocidos como células plasmáticas, son células especializadas del tejido conjuntivo encargadas de la producción de anticuerpos. Se originan a partir de linfocitos B activados, que, tras la exposición a un antígeno, se diferencian en células plasmáticas capaces de secretar grandes cantidades de inmunoglobulinas.</p>  
+                <p>Estas células tienen una morfología característica: son ovoidales, con un núcleo excéntrico y un citoplasma rico en retículo endoplasmático rugoso, lo que les permite sintetizar y liberar anticuerpos de manera eficiente. Se encuentran principalmente en el tejido conjuntivo laxo, especialmente en áreas expuestas a antígenos, como el tracto gastrointestinal y respiratorio.</p>  
+                <p>Los plasmocitos desempeñan un papel clave en la inmunidad humoral, contribuyendo a la defensa del organismo contra infecciones y facilitando la memoria inmunológica. Su disfunción está relacionada con enfermedades como el mieloma múltiple, un cáncer de células plasmáticas.</p>
+                <div class="content-image">
+                    <img src="elementos11.jpg" alt="Plasmocito productor de anticuerpos">
+                </div>      
+                <h5>6.1.2.3. Neutrófilos</h5>
+                <p>Los neutrófilos son un tipo de glóbulos blancos esenciales para la respuesta inmunitaria innata, actuando como la primera línea de defensa contra infecciones. Se originan en la médula ósea y circulan por la sangre hasta migrar hacia los tejidos conjuntivos en respuesta a señales inflamatorias.</p>  
+                <p>Su función principal es la fagocitosis, es decir, la captura y destrucción de microorganismos mediante la liberación de enzimas y especies reactivas de oxígeno. También participan en la formación de trampas extracelulares de neutrófilos (NETs), estructuras que atrapan y eliminan patógenos.</p> 
+                <p>Los neutrófilos tienen una vida corta y son los principales componentes del pus, acumulándose en sitios de infección o lesión. Su activación excesiva puede contribuir a enfermedades inflamatorias crónicas.</p>  
+                <div class="content-image">
+                    <img src="elementos12.jpg" alt="Neutrófilo, un tipo de glóbulo blanco">
+                </div>        
+                <h5>6.1.2.4. Eosinófilos</h5>
+                <p>Los eosinófilos son un tipo de glóbulos blancos pertenecientes a la familia de los granulocitos, caracterizados por su núcleo bilobulado y sus gránulos citoplasmáticos que contienen proteínas tóxicas para patógenos y parásitos.</p>  
+                <p>En el tejido conjuntivo, los eosinófilos desempeñan un papel clave en la respuesta inmunitaria, especialmente en la defensa contra infecciones parasitarias y en la modulación de reacciones alérgicas. También participan en la homeostasis tisular, contribuyendo a la remodelación de tejidos en procesos inflamatorios.</p>  
+                <p>Su activación excesiva puede estar relacionada con enfermedades como el asma, alergias y trastornos inflamatorios crónicos. En condiciones normales, representan entre 2% y 4% de los leucocitos en sangre, pero pueden migrar al tejido conjuntivo en respuesta a estímulos inflamatorios.</p>
+                <div class="content-image">
+                    <img src="elementos13.jpg" alt="Eosinófilo, un tipo de glóbulo blanco">
+                </div>         
+                <h5>6.1.2.5. Basófilos</h5> 
+                <p>Los basófilos son un tipo de glóbulos blancos pertenecientes a la familia de los granulocitos, caracterizados por sus gránulos citoplasmáticos ricos en histamina y heparina. Aunque representan menos del 1% de los leucocitos en sangre, desempeñan un papel clave en la respuesta inflamatoria y alérgica.</p>  
+                <p>En el tejido conjuntivo, los basófilos actúan de manera similar a los mastocitos, participando en la liberación de mediadores químicos que regulan la vasodilatación, permeabilidad vascular y activación de otras células inmunitarias. Su activación ocurre principalmente en reacciones alérgicas y procesos inflamatorios, contribuyendo a la defensa contra patógenos y la reparación tisular.</p>  
+                <p>Además, los basófilos pueden modular la respuesta inmune adaptativa, interactuando con linfocitos y otras células del sistema inmunológico. Su activación excesiva está relacionada con enfermedades como el asma, urticaria y anafilaxia.</p>  
+                <div class="content-image">
+                    <img src="elementos14.jpg" alt="Basófilo, un tipo de glóbulo blanco">
+                </div>
+                <h5>6.1.2.6. Macrófagos derivados de monocitos</h5> 
+                <p>Los macrófagos derivados de monocitos son células inmunitarias especializadas que desempeñan un papel clave en la fagocitosis, regulación inflamatoria y reparación tisular dentro del tejido conjuntivo. Se originan a partir de monocitos circulantes, que migran desde la sangre hacia los tejidos en respuesta a señales inflamatorias o infecciosas, diferenciándose en macrófagos con funciones específicas según el microambiente.</p>  
+                <p>Estos macrófagos pueden adoptar distintos fenotipos:</p>  
+                <ul>
+                    <li>Macrófagos M1 (proinflamatorios): Secretan citocinas como IL-1, IL-6 y TNF-α, promoviendo la eliminación de patógenos y la activación de la respuesta inmune.</li>  
+                    <li>Macrófagos M2 (antiinflamatorios y reparadores): Favorecen la cicatrización, remodelación tisular y regulación de la inflamación, contribuyendo a la homeostasis del tejido.</li>  
+                </ul>
+                <p>Además de su función en la defensa inmunológica, los macrófagos derivados de monocitos participan en la presentación de antígenos, activando linfocitos T y modulando la respuesta adaptativa. Su desregulación está asociada a enfermedades inflamatorias crónicas y trastornos autoinmunes.</p>
+                <div class="content-image">
+                    <img src="elementos15.jpg" alt="Monocito diferenciándose a macrófago">
+                </div>
+                <h3>6.2. Matriz Extracelular</h3>  
+                <p>La matriz extracelular (MEC) del tejido conjuntivo es una red tridimensional de macromoléculas compuesta por fibras estructurales (colágeno, elastina y reticulina), proteoglicanos y glicoproteínas adhesivas, que proporciona soporte mecánico, regulación bioquímica y comunicación celular, facilitando la homeostasis, reparación tisular y señalización celular en los tejidos.</p>
+                <div class="content-image">
+                    <img src="elementos16.jpg" alt="Esquema de la Matriz Extracelular (MEC)">
+                </div>
+                <h4>6.2.1. Funciones de la Matriz Extracelular</h4> 
+                <h5>6.2.1.1. Soporte Estructural</h5> 
+                <p>El soporte estructural es una de las funciones esenciales de la matriz extracelular (MEC) del tejido conjuntivo, ya que proporciona resistencia, estabilidad y organización a los tejidos y órganos. Está compuesto por una red de fibras de colágeno, elastina y reticulina, junto con una sustancia fundamental rica en proteoglicanos y glicoproteínas adhesivas, que permiten la interacción celular y la distribución de cargas mecánicas.</p>  
+                <h5>6.2.1.2. Regulación de la Comunicación Celular</h5>
+                <p>La regulación de la comunicación celular en la matriz extracelular (MEC) del tejido conjuntivo es un proceso clave que permite la interacción entre células y su entorno, facilitando la señalización, adhesión y diferenciación celular. La MEC actúa como un medio de transmisión de señales bioquímicas y mecánicas, influyendo en la proliferación, migración y supervivencia celular.</p>  
+                <h5>6.2.1.3.  Adhesión Celular</h5>
+                <p>La adhesión celular es el proceso mediante el cual las células se unen entre sí o a la matriz extracelular, permitiendo la organización tisular, comunicación celular y regulación de funciones biológicas. Esta interacción se da a través de moléculas como cadherinas, selectinas e integrinas, que facilitan la cohesión celular y la conexión con el microambiente tisular. La adhesión es esencial para la arquitectura de los tejidos, la migración celular, la respuesta inmunológica y la regeneración tisular, ya que permite la transmisión de señales bioquímicas que regulan la proliferación, diferenciación y supervivencia celular.</p>
+                <h5>6.2.1.4. Filtración y Protección</h5> 
+                <p>La filtración se lleva a cabo mediante proteoglicanos y glicoproteínas, que controlan la difusión de sustancias, mientras que las fibras reticulares y membranas basales facilitan el intercambio selectivo de nutrientes y señales bioquímicas. En cuanto a la protección, las fibras de colágeno y elastina proporcionan resistencia mecánica y flexibilidad, evitando daños estructurales, mientras que los factores de señalización activan respuestas inmunológicas ante infecciones o lesiones, asegurando la homeostasis y funcionalidad del tejido conjuntivo.</p>         
+                <h5>6.2.1.5. Mecanotransducción</h5>
+                <p>La mecanotransducción es el proceso mediante el cual las células perciben y responden a estímulos mecánicos, convirtiéndolos en señales bioquímicas que regulan su comportamiento y función. Este mecanismo involucra la interacción entre integrinas, proteínas de la MEC y el citoesqueleto celular, permitiendo la adaptación de los tejidos a fuerzas externas como presión, tensión y compresión.</p> 
+                <p>La MEC actúa como un sensor mecánico dinámico, transmitiendo información sobre el entorno celular y modulando procesos como la proliferación, diferenciación y migración celular, esenciales para la homeostasis y regeneración tisular.</p> 
+                <h4>6.2.2. Componentes de la Matriz Extracelular</h4> 
+                <h5>6.2.2.1. Proteínas Fibrosas</h5>
+                <p>Las proteínas fibrosas son macromoléculas estructurales caracterizadas por su forma alargada y disposición en fibras, lo que les confiere gran resistencia mecánica y baja solubilidad en agua. Estas proteínas desempeñan funciones esenciales en la estructura y soporte de los tejidos, formando componentes clave como el colágeno, que proporciona estabilidad a la piel, tendones y huesos; la elastina, que permite la elasticidad en vasos sanguíneos y pulmones; y la queratina, que fortalece el cabello, uñas y piel. Su organización en estructuras repetitivas y altamente ordenadas les permite soportar tensiones y mantener la integridad de los tejidos en organismos multicelulares.</p>           
+                <h5>6.2.2.2. Proteoglicanos y Glicosaminoglicanos</h5>
+                <p>Los proteoglicanos y glicosaminoglicanos (GAGs) son componentes esenciales de la matriz extracelular, desempeñando un papel clave en la hidratación, resistencia mecánica y señalización celular. Los proteoglicanos están formados por un núcleo proteico unido a múltiples cadenas de GAGs, lo que les permite regular la interacción celular y la homeostasis tisular. Los GAGs, como el hialuronano, condroitín sulfato y heparán sulfato, son polisacáridos altamente sulfatados que contribuyen a la viscosidad y elasticidad de los tejidos, facilitando la lubricación articular y la filtración molecular. Su estructura les permite almacenar agua, amortiguar fuerzas mecánicas y modular la actividad de factores de crecimiento, siendo fundamentales en la organización y funcionalidad del tejido conjuntivo.</p>     
+                <h5>6.2.2.3. Minerales y Sustancias Bioactivas</h5> 
+                <p>Los minerales y sustancias bioactivas de la matriz extracelular (MEC) desempeñan un papel crucial en la estructura, función y señalización celular dentro de los tejidos. Entre los minerales más importantes se encuentra la hidroxiapatita, un compuesto de fosfato de calcio que confiere rigidez y resistencia al tejido óseo. Además, elementos como magnesio, zinc y cobre participan en la regulación enzimática y la síntesis de colágeno, favorecendo la regeneración tisular. Las sustancias bioactivas, como los factores de crecimiento (TGF-β, FGF, VEGF) y las citocinas, modulan la proliferación celular, diferenciación y reparación de tejidos, siendo esenciales en procesos como la cicatrización y remodelación tisular. La MEC también contiene glicoproteínas adhesivas, como fibronectina y laminina, que facilitan la interacción celular y la estabilidad estructural. Es decir, estos componentes minerales y sustancias bioactivas aseguran la integridad, funcionalidad y adaptación de los tejidos a diferentes condiciones fisiológicas.</p>
+                <div class="content-image">
+                    <img src="elementos17.jpg" alt="Componentes de la Matriz Extracelular (MEC)">
+                </div>      
+                <h4>6.2.3. Tipos de Matriz Extracelular</h4>
+                <h5>6.2.3.1. Matriz Intersticial</h5>
+                <p>La matriz intersticial es un componente de la matriz extracelular (MEC) que llena los espacios entre las células en los tejidos, proporcionando soporte estructural, regulación bioquímica y facilitación de la comunicación celular. Está compuesta por una red de proteínas, glicoproteínas y proteoglicanos, que contribuyen a la integridad tisular, migración celular y señalización. Además, juega un papel clave en la homeostasis del tejido, influyendo en procesos como la diferenciación celular y la respuesta a estímulos mecánicos.</p>         
+                <h5>6.2.3.2. Membrana Basal</h5>
+                <p>La membrana basal es una delgada capa de matriz extracelular que separa los epitelios, células musculares y nerviosas del tejido conjuntivo subyacente, proporcionando soporte estructural, filtración selectiva y regulación de la comunicación celular. Está compuesta principalmente por colágeno tipo IV, laminina, nidógeno y proteoglicanos, formando una barrera que controla el intercambio de moléculas y la adhesión celular. Además, desempeña un papel clave en la organización tisular, regeneración celular y protección contra la invasión de células malignas, contribuyendo a la homeostasis y funcionalidad de los tejidos.</p>
+                <div class="content-image">
+                    <img src="elementos18.jpg" alt="Tipos de Matriz Extracelular: Intersticial y Membrana Basal">
+                </div>
+                <h3>6.3. Fibras del Tejido Conjuntivo</h3>
+                <p>Las fibras del tejido conjuntivo son estructuras proteicas que proporcionan soporte, resistencia y elasticidad a los tejidos, y se clasifican en colágenas, elásticas y reticulares. Las fibras de colágeno, compuestas principalmente por colágeno tipo I, son las más abundantes y confieren fuerza y estabilidad a la piel, tendones y huesos. Las fibras elásticas, formadas por elastina y fibrilina, permiten la flexibilidad y recuperación de los tejidos tras la deformación, siendo esenciales en vasos sanguíneos y pulmones. Las fibras reticulares, compuestas por colágeno tipo III, crean una red de soporte en órganos como el hígado y los ganglios linfáticos, facilitando la organización celular.</p>
+                <div class="content-image">
+                    <img src="elementos19.jpg" alt="Tipos de fibras del tejido conjuntivo: colágeno, elásticas y reticulares">
+                </div>
+                <h4>6.3.1. Tipos de Fibras del Tejido Conjuntivo</h4> 
+                <h5>6.3.1.1. Fibras de Colágeno</h5>
+                <p>Las fibras de colágeno son estructuras proteicas que proporcionan resistencia, estabilidad y soporte mecánico a los tejidos. Están compuestas por colágeno, una proteína estructural organizada en una triple hélice, que forma fibrillas y fibras con gran capacidad para soportar tensiones. Existen varios tipos de colágeno, siendo el tipo I el más abundante en tendones, huesos y piel, el tipo II predominante en cartílago, y el tipo III presente en fibras reticulares de órganos como el hígado y los vasos sanguíneos. Estas fibras son esenciales para la integridad tisular, cicatrización y remodelación celular, asegurando la funcionalidad y resistencia de los tejidos conjuntivos.</p>         
+                <h5>6.3.1.2. Fibras Reticulares</h5>
+                <p>Las fibras reticulares son estructuras delgadas compuestas principalmente por colágeno tipo III, formando una red altamente organizada que proporciona soporte estructural y anclaje celular en diversos tejidos. Estas fibras, sintetizadas por fibroblastos y células reticulares, se encuentran en órganos como el bazo, ganglios linfáticos, médula ósea e hígado, donde facilitan la interacción celular, el intercambio de nutrientes y la estabilidad tisular. Su disposición en una malla permite la filtración y movilidad celular, siendo esenciales en la respuesta inmunológica y regeneración tisular.</p>
+                <h5>6.3.1.3. Fibras Elásticas</h5> 
+                <p>Las fibras elásticas están formadas principalmente por elastina y rodeadas por microfibrillas de fibrilina, lo que les confiere elasticidad y capacidad de recuperación tras la deformación. Estas fibras están presentes en tejidos sometidos a constantes cambios mecánicos, como la piel, pulmones, vasos sanguíneos y cartílago elástico, donde permiten la expansión y contracción sin pérdida de estructura. Su función es clave en la adaptabilidad tisular, regulación de la presión arterial y resistencia a fuerzas externas, asegurando la integridad y flexibilidad de los tejidos.</p>       
+                <h4>6.3.2. Funciones de las Fibras del Tejido Conjuntivo</h4> 
+                               <ul>
+                    <li>Soporte Estructural</li>
+                    <li>Resistencia Mecánica</li>
+                    <li>Elasticidad</li>
+                    <li>Filtración Celular</li>
+                </ul>
+                 <div class="content-image">
+                    <img src="elementos20.jpg" alt="Funciones de las diferentes fibras del tejido conjuntivo">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="clasificacion"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="importancia-enfermeria">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 7: Importancia en Enfermería -->
+    <section id="importancia-enfermeria">
+        <div class="container">
+            <div class="section-header">
+                <h2>7. Importancia del Tejido Conjuntivo en Enfermería</h2>
+            </div>
+            <div class="content-box">
+                <p>El tejido conjuntivo es esencial en la carrera de Enfermería, ya que desempeña un papel clave en la estructura, función y reparación de los tejidos del cuerpo humano. Su importancia radica en su capacidad para proporcionar soporte mecánico, facilitar la comunicación celular y participar en procesos de reparación tisular, aspectos esenciales en el cuidado de pacientes con diversas afecciones.</p>
+                <p>Desde una perspectiva clínica, el tejido conjuntivo es crucial en la cicatrización de heridas, ya que su matriz extracelular, compuesta por colágeno, elastina y proteoglicanos, regula la migración celular y la síntesis de colágeno, promoviendo la reparación tisular. En pacientes con úlceras por presión, quemaduras o heridas quirúrgicas, el conocimiento sobre la regeneración del tejido conjuntivo permite a los profesionales de enfermería optimizar los cuidados, favoreciendo una recuperación más eficiente.</p>
+                <p>Además, el tejido conjuntivo participa activamente en la fisiopatología de enfermedades sistémicas, como la artritis reumatoide, lupus eritematoso sistémico y esclerodermia, que afectan la integridad de la matriz extracelular y generan inflamación crónica. La enfermería juega un papel esencial en la monitorización de síntomas, administración de tratamientos y educación del paciente, ayudando a mejorar la calidad de vida de quienes padecen estas afecciones.</p>
+                <p>En el ámbito de la geriatría, el deterioro del tejido conjuntivo con la edad influye en la fragilidad cutánea, disminución de la elasticidad vascular y pérdida de densidad ósea, aumentando el riesgo de lesiones y fracturas. Los profesionales de enfermería deben aplicar estrategias preventivas, cuidado de la piel e implementación de movilización segura, para reducir complicaciones y mejorar la salud de los pacientes mayores.</p>
+                <p>Por otro lado, en la cirugía y rehabilitación, el tejido conjuntivo es clave en la recuperación postoperatoria, ya que su capacidad de regeneración influye en la cicatrización de suturas, integración de injertos y reparación de tejidos dañados. La enfermería desempeña un papel crucial en el manejo del dolor, control de infecciones y seguimiento de la evolución del tejido, asegurando una recuperación óptima.</p>  
+                <p>El tejido conjuntivo es un conocimiento fundamental en la práctica de enfermería, ya que su conocimiento permite mejorar la atención en cicatrización, enfermedades autoinmunes, geriatría, cirugía y rehabilitación, optimizando el cuidado de los pacientes y promoviendo su bienestar.</p> 
+                 <div class="content-image">
+                    <img src="importa1.jpg" alt="Importancia del tejido conjuntivo en la práctica de enfermería">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="elementos"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="patologias">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 8: Patologías Relacionadas -->
+    <section id="patologias">
+        <div class="container">
+            <div class="section-header">
+                <h2>8. Patologías Relacionadas con el Tejido Conjuntivo</h2>
+            </div>
+            <div class="content-box">
+                <p>Las patologías del tejido conjuntivo abarcan una amplia variedad de enfermedades que afectan su estructura, función y regeneración, impactando órganos y sistemas en el cuerpo. Estas patologías pueden clasificarse en enfermedades autoinmunes, trastornos genéticos, enfermedades degenerativas y cánceres.</p>
+                <h3>8.1. Enfermedades autoinmunes</h3>
+                <p>Las enfermedades autoinmunes del tejido conjuntivo ocurren cuando el sistema inmunológico ataca sus propios componentes, generando inflamación y daño tisular. Algunas de las más comunes incluyen:</p> 
+                <ul>
+                    <li>Artritis reumatoide: Provoca inflamación crónica en las articulaciones, causando dolor y deformidad.</li>  
+                    <li>Lupus eritematoso sistémico: Afecta múltiples órganos, incluyendo piel, riñones y corazón.</li>  
+                    <li>Esclerodermia: Se caracteriza por el endurecimiento de la piel y afectación de órganos internos.</li>  
+                    <li>Síndrome de Sjögren: Provoca sequedad en ojos y boca debido a la disfunción de glándulas exocrinas.</li>  
+                </ul>
+                <div class="content-image">
+                     <img src="pato1.jpg" alt="Ilustración de enfermedad autoinmune afectando el tejido conjuntivo">
+                </div>
+                <h3>8.2. Trastornos genéticos del tejido conjuntivo</h3>
+                <p>Estos trastornos son causados por mutaciones genéticas que afectan la producción de proteínas estructurales como el colágeno y la elastina. Algunos ejemplos incluyen:</p>  
+                <ul>
+                    <li>Síndrome de Ehlers-Danlos: Se caracteriza por hiperextensibilidad de la piel y articulaciones laxas.</li>  
+                    <li>Síndrome de Marfan: Afecta el tejido conjuntivo de los vasos sanguíneos, ojos y esqueleto, aumentando el riesgo de aneurismas.</li>  
+                    <li>Epidermólisis bullosa: Provoca fragilidad extrema de la piel, generando ampollas y heridas con mínimos traumatismos.</li>  
+                </ul>
+                <div class="content-image">
+                    <img src="pato2.png" alt="Ejemplo de manifestación de un trastorno genético del tejido conjuntivo">
+                </div>
+                <h3>8.3. Enfermedades degenerativas</h3>  
+                <p>Estas patologías afectan la integridad del tejido conjuntivo con el envejecimiento o el desgaste progresivo:</p>  
+                <ul>
+                    <li>Osteoartritis: Desgaste del cartílago articular, causando dolor y rigidez en las articulaciones.</li>  
+                    <li>Fibrosis pulmonar idiopática: Provoca acumulación de tejido fibroso en los pulmones, dificultando la respiración.</li>  
+                    <li>Degeneración del disco intervertebral: Afecta la columna vertebral, causando dolor y pérdida de movilidad.</li>  
+                </ul>
+                <div class="content-image">
+                     <img src="pato3.jpg" alt="Articulación afectada por osteoartritis">
+                </div>
+                <h3>8.4. Cáncer del tejido conjuntivo</h3>
+                <p>Los tumores que afectan el tejido conjuntivo pueden ser benignos o malignos, y se originan en células como fibroblastos, adipocitos y condrocitos:</p>  
+                <ul>
+                    <li>Sarcomas: Tumores malignos que afectan huesos, cartílagos y tejidos blandos.</li>  
+                    <li>Liposarcoma: Cáncer de tejido adiposo que puede comprometer órganos internos.</li>  
+                    <li>Condrosarcoma: Tumor maligno del cartílago, común en adultos mayores.</li>  
+                </ul>
+                <p>El conocimiento de estas patologías es esencial en enfermería, ya que permite una mejor comprensión de los síntomas, tratamientos y cuidados específicos para cada enfermedad.</p> 
+                <div class="content-image">
+                    <img src="pato4.jpg" alt="Ilustración de un sarcoma, cáncer del tejido conjuntivo">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="importancia-enfermeria"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="prevencion-cuidados">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 9: Prevención, Protección y Cuidados -->
+    <section id="prevencion-cuidados">
+        <div class="container">
+            <div class="section-header">
+                <h2>9. Prevención, Protección y Cuidados</h2>
+            </div>
+            <div class="content-box">
+                <p>Proteger y preservar el tejido conjuntivo es fundamental para mantener la salud y funcionalidad del organismo. Aquí presentamos algunas prácticas clave que pueden ayudar:</p>  
+                <ul>
+                    <li><strong>Alimentarse saludablemente:</strong> Consumir una dieta rica en proteínas, colágeno, vitaminas C y E, minerales como zinc y magnesio, además de ácidos grasos esenciales provenientes de fuentes naturales, favorece la producción y reparación de la matriz extracelular y las fibras del tejido conjuntivo. Alimentos como pescado, frutas cítricas, vegetales verdes, frutos secos y legumbres son ideales para fortalecer los tejidos.</li>  
+                    <li><strong>Hidratarse adecuadamente:</strong> El agua es esencial para la elasticidad y resistencia de los tejidos, ya que la matriz extracelular depende de un equilibrio adecuado de hidratación para mantener su funcionalidad. Beber al menos 2 litros de agua al día ayuda a conservar la lubricación de articulaciones, piel y órganos.</li>  
+                    <li><strong>Proteger la piel de la contaminación ambiental:</strong> El tejido conjuntivo dérmico, compuesto por colágeno y elastina, se deteriora con la exposición excesiva al sol, contaminación y radicales libres. Usar protector solar, evitar el tabaquismo y aplicar antioxidantes tópicos ayuda a retrasar el envejecimiento prematuro y la degeneración del tejido.</li>  
+                    <li><strong>Practicar ejercicio regularmente:</strong> El movimiento es clave para la regeneración y desarrollo tisular. Actividades como entrenamiento de fuerza, ejercicios de movilidad, yoga y estiramientos favorecen la síntesis de colágeno, mejoran la circulación y reducen el riesgo de lesiones en articulaciones y ligamentos.</li> 
+                    <li><strong>Manejar el estrés y descansar bien:</strong> El estrés crónico libera hormonas que afectan la producción de colágeno y la regeneración celular, debilitando los tejidos. Practicar técnicas de relajación, dormir entre 7 y 9 horas por noche, y mantener una buena calidad de vida ayuda a mantener la integridad tisular.</li> 
+                    <li><strong>Reducir hábitos dañinos:</strong> El consumo excesivo de alcohol, el tabaco y una dieta alta en azúcar pueden acelerar la degeneración de diversos tejidos, afectando articulaciones, piel y órganos internos. Moderar y posteriormente eliminar estos hábitos será clave para gozar de longevidad y salud tisular.</li>  
+                    <li><strong>Suplementación y cuidados específicos:</strong> En algunas etapas de la vida, puede ser beneficioso suplementar con colágeno hidrolizado, ácido hialurónico o antioxidantes, especialmente en personas como son los adultos mayores, personas que han tenido lesiones o enfermedades con relación al tejido conjuntivo.</li>  
+                </ul>
+                <p>Cuidar la salud será un compromiso diario que influirá en la movilidad, apariencia y bienestar general. Con hábitos adecuados, se pueden fortalecer, regenerar y prevenir enfermedades a lo largo en la vida del ser humano.</p>
+                <div class="content-image">
+                     <img src="preve.jpg" alt="Ilustración sobre prevención y cuidados del tejido conjuntivo">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="patologias"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="conclusion">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 10: Conclusión -->
+    <section id="conclusion">
+        <div class="container">
+            <div class="section-header">
+                <h2>10. Conclusión</h2>
+            </div>
+            <div class="content-box">
+                <p>El tejido conjuntivo o también llamado tejido conectivo es un elemento clave en la estructura, función y regeneración del cuerpo humano, desempeñando un papel esencial en la sostén, protección y comunicación celular. A través de esta monografía, hemos explorado en profundidad sus características, funciones, clasificación, elementos fundamentales y la matriz extracelular, así como su importancia en enfermería y en el manejo de patologías relacionadas.</p>  
+                <p>Desde una perspectiva biomédica, el tejido conjuntivo no solo es un componente de soporte, sino también un medio de interacción celular, donde las células residentes y móviles, junto con la matriz extracelular, regulan procesos esenciales como la cicatrización, inflamación, defensa inmunológica y reparación tisular. La matriz extracelular, con sus proteínas fibrosas, proteoglicanos y glicosaminoglicanos, participa activamente en la mecanotransducción, permitiendo que las células perciban y respondan a estímulos mecánicos, asegurando la adaptación del tejido a diferentes condiciones fisiológicas.</p>
+                <p>En el ámbito clínico y en enfermería, comprender la estructura y función del tejido conjuntivo es crucial para el diagnóstico y tratamiento de enfermedades que afectan su integridad, como las patologías autoinmunes, trastornos genéticos, enfermedades degenerativas y cánceres del tejido conjuntivo. Los profesionales de enfermería tienen un papel fundamental en el manejo del dolor, prevención de lesiones, administración de tratamientos y educación del paciente, promoviendo una recuperación eficaz y mejorando la calidad de vida de quienes padecen afecciones relacionadas con este tejido.</p>  
+                <p>Además, el tejido conjuntivo es esencial en la geriatría, donde su deterioro con la edad influye en la fragilidad cutánea, disminución de la elasticidad vascular y pérdida ósea, aumentando el riesgo de úlceras, fracturas y complicaciones vasculares. La enfermería desempeña un papel clave en la implementación de estrategias de prevención, como el cuidado de la piel, la movilización adecuada y la promoción de hábitos saludables para preservar la función del tejido conjuntivo en pacientes mayores.</p>  
+                <p>Por otro lado, en el contexto de la cirugía y rehabilitación, la capacidad del tejido conjuntivo para repararse y regenerarse es fundamental en la recuperación postoperatoria. Los profesionales de enfermería contribuyen al éxito de estos procesos mediante la monitorización de la cicatrización, control de infecciones y apoyo a la movilidad, asegurando una rehabilitación efectiva.</p>  
+                <p>El desarrollo de esta monografía ha sido una experiencia enriquecedora en mi formación como estudiante de enfermería, me ha permitido comprender la importancia del tejido conjuntivo en la salud humana y su impacto en diversos procesos fisiológicos y patológicos. La investigación realizada fortalece los conocimientos necesarios para aplicar un cuidado integral basado en la prevención, diagnóstico y tratamiento de enfermedades relacionadas, reafirmando el papel de la enfermería en la atención personalizada y en el bienestar de los pacientes.</p>  
+                <p>Finalmente, el tejido conjuntivo no solo cumple una función estructural, sino que también modula la regeneración y la respuesta celular, siendo indispensable en la biología humana y en la práctica de enfermería. Su estudio permite optimizar estrategias de atención, mejorar el manejo de enfermedades y contribuir al avance de la ciencia médica, reafirmando su relevancia en la salud y en la calidad de vida de los pacientes.</p>
+                <div class="content-image">
+                     <img src="conclu.jpg" alt="Resumen visual o concepto clave de la monografía sobre tejido conjuntivo">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="prevencion-cuidados"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="bibliografia">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Bibliografía -->
+    <section id="bibliografia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bibliografía</h2>
+            </div>
+            <div class="content-box">
+                 <ul id="bibliografia-lista">
+                    <li>AnatomyLearner. (s.f.). Adipose tissue under microscope (white and brown). Recuperado el 29 de mayo de 2024, de <a href="https://anatomylearner.com/adipose-tissue-under-microscope/" target="_blank" rel="noopener noreferrer">https://anatomylearner.com/adipose-tissue-under-microscope/</a></li>
+                    <li>Bailey, R. (2019, julio 15). What is connective tissue? Definition, types, and disorders. ThoughtCo. <a href="https://www.thoughtco.com/connective-tissue-anatomy-373207" target="_blank" rel="noopener noreferrer">https://www.thoughtco.com/connective-tissue-anatomy-373207</a></li>
+                    <li>BD Editors. (2017, mayo 1). Hyaline cartilage. Biology Dictionary. <a href="https://biologydictionary.net/hyaline-cartilage/" target="_blank" rel="noopener noreferrer">https://biologydictionary.net/hyaline-cartilage/</a></li>
+                    <li>BD Editors. (2020, abril 28). Connective tissue. Biology Dictionary. <a href="https://biologydictionary.net/connective-tissue/" target="_blank" rel="noopener noreferrer">https://biologydictionary.net/connective-tissue/</a></li>
+                    <li>Boundless. (s.f.). 4.3A: Characteristics of connective tissue. LibreTexts Medicine. Recuperado el 29 de mayo de 2024, de <a href="https://med.libretexts.org/Bookshelves/Anatomy_and_Physiology/Anatomy_and_Physiology_(Boundless)/4%3A_Organization_at_the_Tissue_Level/4.3%3A_Connective_Tissue/4.3A%3A_Characteristics_of_Connective_Tissue" target="_blank" rel="noopener noreferrer">https://med.libretexts.org/...</a></li>
+                    <li>Cleveland Clinic. (2022, enero 21). Connective tissue diseases. <a href="https://my.clevelandclinic.org/health/diseases/14803-connective-tissue-diseases" target="_blank" rel="noopener noreferrer">https://my.clevelandclinic.org/health/diseases/14803-connective-tissue-diseases</a></li>
+                    <li>Cleveland Clinic. (2022, enero 28). Mast cells. <a href="https://my.clevelandclinic.org/health/body/mast-cells" target="_blank" rel="noopener noreferrer">https://my.clevelandclinic.org/health/body/mast-cells</a></li>
+                    <li>Cleveland Clinic. (2022, septiembre 13). Connective tissue. <a href="https://my.clevelandclinic.org/health/body/connective-tissue" target="_blank" rel="noopener noreferrer">https://my.clevelandclinic.org/health/body/connective-tissue</a></li>
+                    <li>D'Agostino, M., Craig, K. L., Shelton, J. C., & Bader, D. L. (2023). Hydrogels as ideal materials for cartilage tissue engineering. Applied Sciences, 13(7), 4423. <a href="https://doi.org/10.3390/app13074423" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/app13074423</a></li>
+                    <li>Department of Histology, Jagiellonian University Medical College. (s.f.). Specialized connective tissue. Histology Modules - University of Genoa. Recuperado el 29 de mayo de 2024, de <a href="https://istologia.unige.it/en/connective_specialized" target="_blank" rel="noopener noreferrer">https://istologia.unige.it/en/connective_specialized</a>.</li>
+                    <li>Elfarnawany, M. (2023, septiembre 28). Histology of hyaline cartilage. Kenhub. <a href="https://www.kenhub.com/en/library/anatomy/histology-of-hyaline-cartilage" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/en/library/anatomy/histology-of-hyaline-cartilage</a></li>
+                    <li>Eroschenko, V. P. (s.f.). MHS 213 Lymph Nodes. Histology Guide. Recuperado el 29 de mayo de 2024, de <a href="https://histologyguide.com/slideview/MHS-213-lymph-nodes/03-slide-1.html" target="_blank" rel="noopener noreferrer">https://histologyguide.com/slideview/MHS-213-lymph-nodes/03-slide-1.html</a> (Nota: Autor inferido del crédito general del sitio "diFiore's Atlas of Histology with Functional Correlations by Victor P. Eroschenko")</li>
+                    <li>EUGraph. (s.f.). Adipose tissue. Histology - Connective Tissue Proper. Recuperado el 29 de mayo de 2024, de <a href="https://www.eugraph.com/histology/ctprop/adip.html" target="_blank" rel="noopener noreferrer">https://www.eugraph.com/histology/ctprop/adip.html</a></li>
+                    <li>Ferreira, N. (2024, mayo 15). Chondrocyte. Kenhub. <a href="https://www.kenhub.com/en/library/anatomy/chondrocyte" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/en/library/anatomy/chondrocyte</a></li>
+                    <li>Ferreira, N. (2024, mayo 15). Erythrocytes (red blood cells). Kenhub. <a href="https://www.kenhub.com/en/library/anatomy/erythrocytes" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/en/library/anatomy/erythrocytes</a></li>
+                    <li>Ferreira, N. (2024, mayo 15). Fibroblast. Kenhub. <a href="https://www.kenhub.com/en/library/anatomy/fibroblast" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/en/library/anatomy/fibroblast</a></li>
+                    <li>Ferreira, N., & Zavaglia, K. (2024, mayo 15). Adipocyte. Kenhub. <a href="https://www.kenhub.com/en/library/anatomy/adipocyte" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/en/library/anatomy/adipocyte</a></li>
+                    <li>Fröhlich, E., & Wahl, R. (2021). The forgotten effects of thyrotropin on browning and thermogenesis. International Journal of Molecular Sciences, 22(5), 2155. <a href="https://doi.org/10.3390/ijms22052155" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/ijms22052155</a></li>
+                    <li>GeeksforGeeks. (2024, abril 25). Connective tissue – Definition, functions, types & examples. <a href="https://www.geeksforgeeks.org/connective-tissue-definition-functions-types-examples/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/connective-tissue-definition-functions-types-examples/</a></li>
+                    <li>GeneCards. (s.f.). UCP1 gene (Protein Coding). The Human Gene Database. Recuperado el 29 de mayo de 2024, de <a href="https://www.genecards.org/cgi-bin/carddisp.pl?gene=UCP1" target="_blank" rel="noopener noreferrer">https://www.genecards.org/cgi-bin/carddisp.pl?gene=UCP1</a></li>
+                    <li>Georgiev, H. (2024, mayo 15). Overview and types of connective tissue. Kenhub. <a href="https://www.kenhub.com/en/library/anatomy/overview-and-types-of-connective-tissue" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/en/library/anatomy/overview-and-types-of-connective-tissue</a></li>
+                    <li>Hristo, D. (2024, mayo 15). Cartílago elástico. Kenhub. <a href="https://www.kenhub.com/es/library/anatomia-es/cartilago-elastico" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/es/library/anatomia-es/cartilago-elastico</a></li>
+                    <li>Hristo, D. (2024, mayo 15). Cartílago fibroso. Kenhub. <a href="https://www.kenhub.com/es/library/anatomia-es/cartilago-fibroso" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/es/library/anatomia-es/cartilago-fibroso</a></li>
+                    <li>Human Cell Atlas. (s.f.). Census of immune cells in blood, bone marrow, and lymphoid tissues. Data Portal. Recuperado el 29 de mayo de 2024, de <a href="https://explore.data.humancellatlas.org/projects/fc2a0b4e-1e4a-447b-a097-47b398402f37" target="_blank" rel="noopener noreferrer">https://explore.data.humancellatlas.org/...</a></li>
+                    <li>King, M. W. (2024, mayo 13). Extracellular matrix (ECM). The Medical Biochemistry Page. <a href="https://themedicalbiochemistrypage.org/extracellular-matrix-ecm/" target="_blank" rel="noopener noreferrer">https://themedicalbiochemistrypage.org/extracellular-matrix-ecm/</a></li>
+                    <li>Lakna. (2022, septiembre 17). Red blood cells – Definition, structure, function, count, life cycle. Microbe Notes. <a href="https://microbenotes.com/red-blood-cells/" target="_blank" rel="noopener noreferrer">https://microbenotes.com/red-blood-cells/</a></li>
+                    <li>Liu, Y., Xu, G., Liu, C., Liu, H., & Zhang, H. (2023). A review of research progress on biomaterials for cartilage repair. Frontiers in Physics, 11, 1220575. <a href="https://doi.org/10.3389/fphy.2023.1220575" target="_blank" rel="noopener noreferrer">https://doi.org/10.3389/fphy.2023.1220575</a></li>
+                    <li>López, P. (2022, diciembre 16). Osteocitos: qué son, características, funciones, estructura. Lifeder. <a href="https://www.lifeder.com/osteocitos/" target="_blank" rel="noopener noreferrer">https://www.lifeder.com/osteocitos/</a></li>
+                    <li>Luo, L., Liu, M., & Wang, Y. (2023). The enigmatic role of fibroblasts in adipose tissue. International Journal of Molecular Sciences, 24(23), 17096. <a href="https://doi.org/10.3390/ijms242317096" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/ijms242317096</a></li>
+                    <li>Mayo Clinic Staff. (2021, diciembre 17). Mixed connective tissue disease. Mayo Clinic. <a href="https://www.mayoclinic.org/diseases-conditions/mixed-connective-tissue-disease/diagnosis-treatment/drc-20375152" target="_blank" rel="noopener noreferrer">https://www.mayoclinic.org/diseases-conditions/mixed-connective-tissue-disease/diagnosis-treatment/drc-20375152</a></li>
+                    <li>Megías, M., Molist, P., & Pombal, M. A. (s.f.-a). Fibroblast. Atlas of Plant and Animal Histology. Recuperado el 29 de mayo de 2024, de <a href="https://mmegias.webs.uvigo.es/02-english/8-tipos-celulares/fibroblasto.php" target="_blank" rel="noopener noreferrer">https://mmegias.webs.uvigo.es/02-english/8-tipos-celulares/fibroblasto.php</a></li>
+                    <li>Megías, M., Molist, P., & Pombal, M. A. (s.f.-b). White adipocyte. Atlas of Plant and Animal Histology. Recuperado el 29 de mayo de 2024, de <a href="https://mmegias.webs.uvigo.es/02-english/8-tipos-celulares/adipocito-blanco.php" target="_blank" rel="noopener noreferrer">https://mmegias.webs.uvigo.es/02-english/8-tipos-celulares/adipocito-blanco.php</a></li>
+                    <li>Michelson, J. D. (2000). The extracellular matrix: A dynamic environment. Physical Therapy, 79(3), 308–311. <a href="https://doi.org/10.1093/ptj/79.3.308" target="_blank" rel="noopener noreferrer">https://doi.org/10.1093/ptj/79.3.308</a></li>
+                    <li>Microbe Notes. (2023, abril 3). Connective tissue- definition, structure, cells, matrix, types, functions. <a href="https://microbenotes.com/connective-tissue/" target="_blank" rel="noopener noreferrer">https://microbenotes.com/connective-tissue/</a></li>
+                    <li>MicroAnatomy. (s.f.). Compact bone histology. The Histology Net Atlas. Recuperado el 29 de mayo de 2024, de <a href="https://microanatomy.net/bone/compact_bone_histology.htm" target="_blank" rel="noopener noreferrer">https://microanatomy.net/bone/compact_bone_histology.htm</a></li>
+                    <li>Mooventhan, A., & Nivethitha, L. (2020). Can yoga be a therapeutic option for improving the functions of brown adipose tissue? Frontiers in Endocrinology, 11, 498. <a href="https://doi.org/10.3389/fendo.2020.00498" target="_blank" rel="noopener noreferrer">https://doi.org/10.3389/fendo.2020.00498</a></li>
+                    <li>Morell, V. (2022, agosto 30). How to increase synovial fluid. Verywell Health. <a href="https://www.verywellhealth.com/how-to-increase-synovial-fluid-5114374" target="_blank" rel="noopener noreferrer">https://www.verywellhealth.com/how-to-increase-synovial-fluid-5114374</a></li>
+                    <li>Online Sciences. (2023, octubre 16). Connective tissue cells types, function, structure, resident cells & transient cells. <a href="https://www.online-sciences.com/biology/connective-tissue-cells-types-function-structure-resident-cells-transient-cells/" target="_blank" rel="noopener noreferrer">https://www.online-sciences.com/biology/connective-tissue-cells-types-function-structure-resident-cells-transient-cells/</a></li>
+                    <li>PathologyOutlines.com. (2023, mayo 18). Adipose tissue - White fat. <a href="https://www.pathologyoutlines.com/topic/softtissueadiposewhitefat.html" target="_blank" rel="noopener noreferrer">https://www.pathologyoutlines.com/topic/softtissueadiposewhitefat.html</a></li>
+                    <li>Rodríguez-Veiga, E., & Torres, A. J. (2013). Tejido adiposo: Heterogeneidad celular y diversidad funcional [Editorial]. Endocrinología y Nutrición, 60(7), 343–345. <a href="https://doi.org/10.1016/j.endonu.2013.01.004" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.endonu.2013.01.004</a></li>
+                    <li>Rogers, K. (2023, noviembre 17). Compact bone. Britannica. <a href="https://www.britannica.com/science/compact-bone" target="_blank" rel="noopener noreferrer">https://www.britannica.com/science/compact-bone</a></li>
+                    <li>Rogers, K. (2023, noviembre 17). Fibrocartilage. Britannica. <a href="https://www.britannica.com/science/fibrocartilage" target="_blank" rel="noopener noreferrer">https://www.britannica.com/science/fibrocartilage</a></li>
+                    <li>Rogers, K. (2024, abril 26). Osteocyte. Britannica. <a href="https://www.britannica.com/science/osteocyte" target="_blank" rel="noopener noreferrer">https://www.britannica.com/science/osteocyte</a></li>
+                    <li>Rogers, K., & Pletcher, K. (Eds.). (2023, octubre 18). Connective tissue. Britannica. <a href="https://britannica.com/science/connective-tissue" target="_blank" rel="noopener noreferrer">https://britannica.com/science/connective-tissue</a> </li>
+                    <li>Seladi-Schulman, J. (2023, junio 23). Red blood cells: Function and structure. Healthline. <a href="https://www.healthline.com/health/red-blood-cells" target="_blank" rel="noopener noreferrer">https://www.healthline.com/health/red-blood-cells</a></li>
+                    <li>Synovial fluid. (2024, mayo 14). En Wikipedia. <a href="https://en.m.wikipedia.org/wiki/Synovial_fluid" target="_blank" rel="noopener noreferrer">https://en.m.wikipedia.org/wiki/Synovial_fluid</a></li>
+                    <li>Termogenina. (2023, diciembre 10). En Wikipedia, La enciclopedia libre. <a href="https://es.m.wikipedia.org/wiki/Termogenina" target="_blank" rel="noopener noreferrer">https://es.m.wikipedia.org/wiki/Termogenina</a></li>
+                    <li>Thermogenin. (2023, diciembre 10). En Wikipedia. <a href="https://en.m.wikipedia.org/wiki/Thermogenin" target="_blank" rel="noopener noreferrer">https://en.m.wikipedia.org/wiki/Thermogenin</a></li>
+                    <li>The Editors of Encyclopaedia Britannica. (2023, octubre 18). Connective tissue. Britannica. <a href="https://britannica.com/science/connective-tissue" target="_blank" rel="noopener noreferrer">https://britannica.com/science/connective-tissue</a></li>
+                    <li>University of Rochester Medical Center. (s.f.). T lymphocyte, B lymphocyte & natural killer cell. Health Encyclopedia. Recuperado el 29 de mayo de 2024, de <a href="https://www.urmc.rochester.edu/encyclopedia/content?ContentTypeID=167&ContentID=t_b_lymphocyte_natural_killer_cell" target="_blank" rel="noopener noreferrer">https://www.urmc.rochester.edu/encyclopedia/content?ContentTypeID=167&ContentID=t_b_lymphocyte_natural_killer_cell</a></li>
+                    <li>Vinay, S. (2024, mayo 15). Brown adipose tissue. Kenhub. <a href="https://www.kenhub.com/en/library/anatomy/brown-adipose-tissue" target="_blank" rel="noopener noreferrer">https://www.kenhub.com/en/library/anatomy/brown-adipose-tissue</a></li>
+                </ul>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="conclusion"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="anexos">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Anexos -->
+    <section id="anexos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Anexos</h2>
+            </div>
+            <div class="content-box">
+                <div class="content-image">
+                    <img src="ane1.jpg" alt="Anexo 1: Diagrama detallado o imagen complementaria">
+                    <!-- <p class="image-caption">Anexo 1</p> -->
+                </div>
+                 <div class="content-image">
+                    <img src="ane2.jpg" alt="Anexo 2: Otra imagen o diagrama complementario">
+                    <!-- <p class="image-caption">Anexo 2</p> -->
+                </div>
+                <div class="content-image">
+                    <img src="ane3.jpg" alt="Anexo 3: Diagrama detallado o imagen complementaria">
+                    <!-- <p class="image-caption">Anexo 3</p> -->
+                </div>
+                 <div class="content-image">
+                    <img src="ane4.jpg" alt="Anexo 4: Otra imagen o diagrama complementario">
+                    <!-- <p class="image-caption">Anexo 4</p> -->
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn prev" data-target="bibliografia"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="agradecimientos">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Agradecimientos -->
+    <section id="agradecimientos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Agradecimientos</h2>
+            </div>
+            <div class="content-box">
+                <p>"Llegar al final de este proyecto monográfico ha sido un camino de aprendizaje y esfuerzo. Queremos extender un profundo agradecimiento a nuestra profesora, C.D. Fabiola Díaz Romero, cuya orientación experta y dedicación nos inspiraron y motivaron en cada etapa. Su pasión por la enseñanza ha sido un verdadero ejemplo. A nuestros compañeros de clase, gracias por las discusiones enriquecedoras y el compañerismo. Y un agradecimiento muy especial a nuestras familias y amigos, por su apoyo incondicional y por creer en nosotros."</p>
+            </div>
+             <div class="navigation">
+                <button class="nav-btn prev" data-target="anexos"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="nav-btn next" data-target="" disabled>Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Monografía sobre Tejido Conjuntivo - Estudiantes de Enfermería</p>
+                 <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> - Grupo de Exposición. Todos los derechos reservados.
+                <br>Diseño base inspirado y adaptado.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainMenu = document.getElementById('mainMenu');
+            const navLinks = mainMenu.querySelectorAll('a.nav-link');
+            const sections = document.querySelectorAll('section');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const indexSections = document.querySelectorAll('.index-section');
+            const navigationButtons = document.querySelectorAll('.nav-btn');
+            const currentYearSpan = document.getElementById('currentYear');
+            const headerElement = document.querySelector('header'); 
+
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            function getHeaderHeight() {
+                return headerElement ? headerElement.offsetHeight : 100; 
+            }
+
+            function setActiveSection(targetId) {
+                const sectionId = targetId.startsWith('#') ? targetId.substring(1) : targetId;
+                const targetSection = document.getElementById(sectionId);
+
+                if (!targetSection) return; 
+
+                sections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                        const sectionTop = targetSection.getBoundingClientRect().top + window.pageYOffset;
+                         window.scrollTo({
+                             top: sectionTop - getHeaderHeight() - 20, 
+                             behavior: 'smooth'
+                         });
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+
+                updateNavigationButtonsState(sectionId);
+
+                if (mainMenu.classList.contains('show')) {
+                    mainMenu.classList.remove('show');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    setActiveSection(targetId);
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        location.hash = targetId;
+                    }
+                });
+            });
+
+            indexSections.forEach(card => {
+                card.addEventListener('click', () => {
+                    const targetId = card.getAttribute('data-target');
+                    if (targetId) {
+                        setActiveSection(targetId);
+                        if (history.pushState) {
+                            history.pushState(null, null, `#${targetId}`);
+                        } else {
+                            location.hash = `#${targetId}`;
+                        }
+                    }
+                });
+            });
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mainMenu.classList.toggle('show');
+                const isExpanded = mainMenu.classList.contains('show');
+                mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+                mobileMenuBtn.innerHTML = isExpanded ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+
+            const sectionOrder = Array.from(navLinks).map(link => link.getAttribute('href').substring(1));
+
+            function updateNavigationButtonsState(currentSectionId) {
+                const currentIndex = sectionOrder.indexOf(currentSectionId);
+
+                document.querySelectorAll('.nav-btn.prev').forEach(btn => {
+                    if (currentIndex > 0) {
+                        btn.disabled = false;
+                        btn.setAttribute('data-target', sectionOrder[currentIndex - 1]);
+                    } else {
+                        btn.disabled = true;
+                        btn.setAttribute('data-target', '');
+                    }
+                });
+
+                document.querySelectorAll('.nav-btn.next').forEach(btn => {
+                    if (currentIndex < sectionOrder.length - 1) {
+                        btn.disabled = false;
+                        btn.setAttribute('data-target', sectionOrder[currentIndex + 1]);
+                        if (currentSectionId === 'inicio' && btn.textContent.includes('Explorar Índice')) {
+                            // Mantener texto original
+                        } else {
+                             btn.innerHTML = `Siguiente <i class="fas fa-arrow-right"></i>`;
+                        }
+                    } else {
+                        btn.disabled = true;
+                        btn.setAttribute('data-target', '');
+                    }
+                });
+            }
+
+            navigationButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    if (button.disabled) return;
+                    event.preventDefault();
+                    const targetId = button.getAttribute('data-target');
+                    if (targetId) {
+                        setActiveSection(targetId);
+                        if (history.pushState) {
+                            history.pushState(null, null, `#${targetId}`);
+                        } else {
+                            location.hash = `#${targetId}`;
+                        }
+                    }
+                });
+            });
+
+            function loadSectionFromHash() {
+                if (window.location.hash) {
+                    const targetIdFromHash = window.location.hash;
+                    if (document.getElementById(targetIdFromHash.substring(1))) {
+                         setActiveSection(targetIdFromHash);
+                         return true;
+                    }
+                }
+                return false;
+            }
+
+            window.addEventListener('popstate', () => {
+                loadSectionFromHash();
+            });
+            
+            if (!loadSectionFromHash()) { 
+                const defaultActiveSection = document.querySelector('section.active');
+                if (defaultActiveSection) { 
+                    setActiveSection(defaultActiveSection.id);
+                } else if (sections.length > 0) { 
+                    setActiveSection(sections[0].id);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
